@@ -17,6 +17,7 @@ class App extends Component {
       count: 0
     }
 
+    this.deleteListItem = this.deleteListItem.bind(this)
     this.addListItem = this.addListItem.bind(this)
     this.setInitialCount = this.setInitialCount.bind(this)
     this.updateCount = this.updateCount.bind(this)
@@ -24,6 +25,12 @@ class App extends Component {
 
   addListItem(item) {
     this.setState({ items: this.state.items.concat(item) })
+  }
+
+  deleteListItem(item) {
+    this.setState({
+      items: this.state.items.filter(listItem => listItem !== item)
+    })
   }
 
   setInitialCount(initialCount) {
@@ -40,7 +47,10 @@ class App extends Component {
         <h1 className="heading">The Simpsons Memory Challenge</h1>
         <RenderImage shoulddisplayimage={this.state.shoulddisplayimage} />
         <AddListItemForm addListItem={this.addListItem} />
-        <RenderList items={this.state.items} />
+        <RenderList
+          items={this.state.items}
+          deleteListItem={this.deleteListItem}
+        />
         <RenderFilteredList items={this.state.items} />
         <InitialCountForm setInitialCount={this.setInitialCount} />
         <h1 className="count">{this.state.count}</h1>

@@ -3,7 +3,7 @@
 }
 
 body {
-  background-image: url("https://amymhaddad.s3.amazonaws.com/morocco-blue.png");
+  background-image: url('https://amymhaddad.s3.amazonaws.com/morocco-blue.png');
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -15,10 +15,10 @@ h1 {
 
 input {
   margin: 10px;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   border: 1px solid transparent;
 }
 
@@ -35,6 +35,6 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
