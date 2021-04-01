@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import UserInput from './UserInput'
-import SubmitButton from './SubmitButton'
+import LargeButton from './LargeButton'
 
 const InitialCountForm = ({ count, setInitialCount }) => {
   const [inputType] = useState('number')
@@ -9,6 +9,7 @@ const InitialCountForm = ({ count, setInitialCount }) => {
   const [inputPlaceholder] = useState('Please Enter a Number')
   const [inputId] = useState('initial-count-input')
   const [countInput, setCountInput] = useState(0)
+  const [submitButtonText] = useState('Submit')
 
   const handleCountSubmit = e => {
     if (countInput !== count) {
@@ -37,7 +38,10 @@ const InitialCountForm = ({ count, setInitialCount }) => {
           inputId={inputId}
           onChangeEvent={handleCountInput}
         />
-        <SubmitButton onClickEvent={handleCountSubmit} />
+        <LargeButton
+          buttonText={submitButtonText}
+          onClickEvent={handleCountSubmit}
+        />
       </form>
     </div>
   )
