@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import UserInput from './UserInput'
-import SubmitButton from './SubmitButton'
+import LargeButton from './LargeButton'
 
 const AddListItemForm = ({ addListItem }) => {
   const [inputType] = useState('text')
@@ -9,6 +9,7 @@ const AddListItemForm = ({ addListItem }) => {
   const [inputPlaceholder] = useState('Please Enter an Item')
   const [inputId] = useState('add-item-id')
   const [newItem, setNewItem] = useState('')
+  const [submitButtonText] = useState('Submit')
 
   const handleItemSubmit = e => {
     if (newItem) {
@@ -37,7 +38,10 @@ const AddListItemForm = ({ addListItem }) => {
           inputId={inputId}
           onChangeEvent={handleItemInput}
         />
-        <SubmitButton onClickEvent={handleItemSubmit} />
+        <LargeButton
+          buttonText={submitButtonText}
+          onClickEvent={handleItemSubmit}
+        />
       </form>
     </div>
   )

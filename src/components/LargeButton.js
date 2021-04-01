@@ -1,9 +1,9 @@
 import React from 'react'
 
-const SubmitButton = ({ onClickEvent }) => (
+const Button = ({ onClickEvent, buttonText }) => (
   <button type="button" onClick={onClickEvent} className="submit-button">
-    Submit
+    {buttonText}
   </button>
 )
 
-export default SubmitButton
+export default Button
