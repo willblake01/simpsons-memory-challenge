@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SubmitButton = ({ onClickEvent }) => (
+const SubmitButton = ({ onClickEvent, buttonText }) => (
   <button type="button" onClick={onClickEvent} className="submit-button">
-    Submit
+    {buttonText}
   </button>
 )
 
