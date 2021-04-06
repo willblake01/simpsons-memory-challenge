@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './styles/app.css'
 import RenderImage from './components/RenderImage'
 import RenderList from './components/RenderList'
@@ -9,8 +9,20 @@ import AddListItemForm from './components/AddListItemForm'
 
 const App = () => {
   const [shoulddisplayimage, setshoulddisplayimage] = useState('true')
-  const [items, setItems] = useState([])
-  const [count, setCount] = useState(0)
+  const [items, setItems] = useState(
+    () => JSON.parse(window.localStorage.getItem('items')) || []
+  )
+  const [count, setCount] = useState(
+    () => window.localStorage.getItem('count') || 0
+  )
+
+  useEffect(() => {
+    window.localStorage.setItem('count', count)
+  }, [count])
+
+  useEffect(() => {
+    window.localStorage.setItem('items', JSON.stringify(items))
+  }, [items])
 
   const addListItem = item => {
     setItems(items.concat(item))
