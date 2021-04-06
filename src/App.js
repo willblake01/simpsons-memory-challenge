@@ -16,13 +16,20 @@ const App = () => {
     () => window.localStorage.getItem('count') || 0
   )
 
-  useEffect(() => {
-    window.localStorage.setItem('count', count)
-  }, [count])
+  function useLocalStorageState(stateItem) {
+    if (typeof stateItem === 'object') {
+      useEffect(() => {
+        window.localStorage.setItem('items', JSON.stringify(stateItem))
+      }, [stateItem])
+    } else {
+      useEffect(() => {
+        window.localStorage.setItem('count', stateItem)
+      }, [stateItem])
+    }
+  }
 
-  useEffect(() => {
-    window.localStorage.setItem('items', JSON.stringify(items))
-  }, [items])
+  useLocalStorageState(count)
+  useLocalStorageState(items)
 
   const addListItem = item => {
     setItems(items.concat(item))
