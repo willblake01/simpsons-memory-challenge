@@ -13,7 +13,7 @@ const App = () => {
     () => JSON.parse(window.localStorage.getItem('items')) || []
   )
   const [count, setCount] = useState(
-    () => window.localStorage.getItem('count') || 0
+    () => parseInt(window.localStorage.getItem('count')) || 0
   )
 
   function useLocalStorageState(stateItem) {
@@ -32,19 +32,27 @@ const App = () => {
   useLocalStorageState(items)
 
   const addListItem = item => {
-    setItems(items.concat(item))
+    let itemsCopy = [...items]
+    itemsCopy = itemsCopy.concat(item)
+    setItems(itemsCopy)
   }
 
   const deleteListItem = item => {
-    setItems(items.filter(listItem => listItem !== item))
+    let itemsCopy = [...items]
+    itemsCopy = itemsCopy.filter(listItem => listItem !== item)
+    setItems(itemsCopy)
   }
 
   const setInitialCount = initialCount => {
-    setCount(initialCount)
+    let countCopy = count
+    countCopy = initialCount
+    setCount(countCopy)
   }
 
   const updateCount = newCount => {
-    setCount(newCount)
+    let countCopy = count
+    countCopy = newCount
+    setCount(countCopy)
   }
 
   return (
