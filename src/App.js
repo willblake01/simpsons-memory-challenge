@@ -17,15 +17,13 @@ const App = () => {
   )
 
   function useLocalStorageState(stateItem) {
-    if (typeof stateItem === 'object') {
-      useEffect(() => {
-        window.localStorage.setItem('items', JSON.stringify(stateItem))
-      }, [stateItem])
-    } else {
-      useEffect(() => {
-        window.localStorage.setItem('count', stateItem)
-      }, [stateItem])
-    }
+    typeof stateItem === 'object'
+      ? useEffect(() => {
+          window.localStorage.setItem('items', JSON.stringify(stateItem))
+        }, [stateItem])
+      : useEffect(() => {
+          window.localStorage.setItem('count', stateItem)
+        }, [stateItem])
   }
 
   useLocalStorageState(count)
