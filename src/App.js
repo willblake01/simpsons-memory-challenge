@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './styles/app.css'
 import RenderImage from './components/RenderImage'
 import RenderList from './components/RenderList'
@@ -6,28 +6,12 @@ import RenderFilteredList from './components/RenderFilteredList'
 import Counter from './components/Counter'
 import InitialCountForm from './components/InitialCountForm'
 import AddListItemForm from './components/AddListItemForm'
+import { useLocalStorageState } from './utils/useLocalStorageState'
 
 const App = () => {
   const [shoulddisplayimage, setshoulddisplayimage] = useState('true')
-  const [items, setItems] = useState(
-    () => JSON.parse(window.localStorage.getItem('items')) || []
-  )
-  const [count, setCount] = useState(
-    () => parseInt(window.localStorage.getItem('count')) || 0
-  )
-
-  function useLocalStorageState(stateItem) {
-    typeof stateItem === 'object'
-      ? useEffect(() => {
-          window.localStorage.setItem('items', JSON.stringify(stateItem))
-        }, [stateItem])
-      : useEffect(() => {
-          window.localStorage.setItem('count', stateItem)
-        }, [stateItem])
-  }
-
-  useLocalStorageState(count)
-  useLocalStorageState(items)
+  const [items, setItems] = useLocalStorageState('items', [])
+  const [count, setCount] = useLocalStorageState('count', 0)
 
   const addListItem = item => {
     let itemsCopy = [...items]
