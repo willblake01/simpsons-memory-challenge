@@ -37,10 +37,19 @@ const App = () => {
     setCount(countCopy)
   }
 
+  const toggleImage = () => {
+    shoulddisplayimage === 'true'
+      ? setshoulddisplayimage('false')
+      : setshoulddisplayimage('true')
+  }
+
   return (
     <div className="app">
       <h1 className="heading">The Simpsons Memory Challenge</h1>
-      <RenderImage shoulddisplayimage={shoulddisplayimage} />
+      <RenderImage
+        shoulddisplayimage={shoulddisplayimage}
+        toggleImage={toggleImage}
+      />
       <AddListItemForm addListItem={addListItem} />
       <RenderList items={items} deleteListItem={deleteListItem} />
       <RenderFilteredList items={items} />
