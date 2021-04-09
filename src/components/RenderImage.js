@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+import LargeButton from './LargeButton'
 
-const RenderImage = ({ shoulddisplayimage }) => {
+const RenderImage = ({ shoulddisplayimage, toggleImage }) => {
+  const [toggleImageButtonText] = useState('Toggle Image')
+
   const displayimage = shoulddisplayimage
   if (shoulddisplayimage === 'true') {
     return (
@@ -13,10 +16,19 @@ const RenderImage = ({ shoulddisplayimage }) => {
           alt="h4i logo"
           shoulddisplayimage={displayimage}
         />
+        <LargeButton
+          buttonText={toggleImageButtonText}
+          onClickEvent={() => toggleImage()}
+        />
       </div>
     )
   } else {
-    return false
+    return (
+      <LargeButton
+        buttonText={toggleImageButtonText}
+        onClickEvent={() => toggleImage()}
+      />
+    )
   }
 }
 
