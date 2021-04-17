@@ -7,6 +7,7 @@ import Counter from './components/Counter'
 import InitialCountForm from './components/InitialCountForm'
 import AddListItemForm from './components/AddListItemForm'
 import { useLocalStorageState } from './utils/useLocalStorageState'
+import SimpsonsQuotesApi from './components/SimpsonsQuotesApi'
 
 const App = () => {
   const [shoulddisplayimage, setshoulddisplayimage] = useState('true')
@@ -46,6 +47,7 @@ const App = () => {
   return (
     <div className="app">
       <h1 className="heading">The Simpsons Memory Challenge</h1>
+      <SimpsonsQuotesApi />
       <RenderImage
         shoulddisplayimage={shoulddisplayimage}
         toggleImage={toggleImage}

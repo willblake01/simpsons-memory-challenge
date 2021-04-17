@@ -9,6 +9,11 @@ body {
   font-family: sans-serif;
 }
 
+@font-face {
+  font-family: 'Simpsons';
+  src: local('Simpsons'), url(../fonts/Simpsons/akbar.ttf) format('truetype');
+}
+
 h1 {
   margin: 0;
 }
