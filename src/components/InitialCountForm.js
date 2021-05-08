@@ -9,7 +9,6 @@ const InitialCountForm = ({ count, setInitialCount }) => {
   const [inputPlaceholder] = useState('Please Enter a Number')
   const [inputId] = useState('initial-count-input')
   const [countInput, setCountInput] = useState(0)
-  const [submitButtonText] = useState('Submit')
 
   const handleCountSubmit = e => {
     if (countInput !== count) {
@@ -39,7 +38,8 @@ const InitialCountForm = ({ count, setInitialCount }) => {
           onChangeEvent={handleCountInput}
         />
         <LargeButton
-          buttonText={submitButtonText}
+          buttonText="Submit"
+          buttonClass="large-button"
           onClickEvent={handleCountSubmit}
         />
       </form>

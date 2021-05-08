@@ -9,6 +9,8 @@ const RenderList = ({ items }) => (
         .map((item, index) => {
           if (index % 2 === 0) {
             return <li key={item}>{item}</li>
+          } else {
+            return null
           }
         })}
     </ul>

@@ -3,7 +3,6 @@ import LargeButton from './LargeButton'
 
 const SimpsonsQuotesApi = () => {
   const [quote, setQuote] = useState(null)
-  const [nextQuoteButtonText] = useState('Next Quote')
 
   const fetchQuote = () => {
     window
@@ -32,7 +31,8 @@ const SimpsonsQuotesApi = () => {
         <cite>-Anonymous Simpsons Character</cite>
       </blockquote>
       <LargeButton
-        buttonText={nextQuoteButtonText}
+        buttonText="Next Quote"
+        buttonClass="large-button"
         onClickEvent={() => nextQuote()}
       />
     </div>
