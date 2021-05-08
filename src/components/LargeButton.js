@@ -1,7 +1,7 @@
 import React from 'react'
 
-const LargeButton = ({ buttonText, onClickEvent }) => (
-  <button type="button" onClick={onClickEvent} className="large-button">
+const LargeButton = ({ buttonText, onClickEvent, buttonClass }) => (
+  <button type="button" onClick={onClickEvent} className={buttonClass}>
     {buttonText}
   </button>
 )

@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import LargeButton from './LargeButton'
 import Tilt from './ImageTilt'
 
 const RenderImage = ({ shoulddisplayimage, toggleImage }) => {
-  const [toggleImageButtonText] = useState('Toggle Image')
-
   const displayimage = shoulddisplayimage
   if (shoulddisplayimage === 'true') {
     return (
@@ -20,7 +18,8 @@ const RenderImage = ({ shoulddisplayimage, toggleImage }) => {
           />
         </Tilt>
         <LargeButton
-          buttonText={toggleImageButtonText}
+          buttonText="Toggle Image"
+          buttonClass="large-button"
           onClickEvent={() => toggleImage()}
         />
       </div>
@@ -30,7 +29,8 @@ const RenderImage = ({ shoulddisplayimage, toggleImage }) => {
       <div className="landing">
         <Tilt></Tilt>
         <LargeButton
-          buttonText={toggleImageButtonText}
+          buttonText="Toggle Image"
+          buttonClass="large-button"
           onClickEvent={() => toggleImage()}
         />
       </div>
