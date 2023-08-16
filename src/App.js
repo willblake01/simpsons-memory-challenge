@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './styles/app.css'
-import RenderImage from './components/RenderImage'
 import RenderList from './components/RenderList'
 import RenderFilteredList from './components/RenderFilteredList'
 import Counter from './components/Counter'
@@ -10,9 +9,9 @@ import { useLocalStorageState } from './utils/useLocalStorageState'
 import SimpsonsQuotesApi from './components/SimpsonsQuotesApi'
 
 const App = () => {
-  const [shoulddisplayimage, setshoulddisplayimage] = useState('true')
-  const [items, setItems] = useLocalStorageState('items', [])
   const [count, setCount] = useLocalStorageState('count', 0)
+  const [displayImage, setDisplayImage] = useState(true)
+  const [items, setItems] = useLocalStorageState('items', [])
 
   const addListItem = item => {
     let itemsCopy = [...items]
@@ -39,17 +38,14 @@ const App = () => {
   }
 
   const toggleImage = () => {
-    shoulddisplayimage === 'true'
-      ? setshoulddisplayimage('false')
-      : setshoulddisplayimage('true')
+    displayImage === true ? setDisplayImage(false) : setDisplayImage(true)
   }
 
   return (
     <div className="app">
       <h1 className="heading">The Simpsons Memory Challenge</h1>
-      <SimpsonsQuotesApi />
-      <RenderImage
-        shoulddisplayimage={shoulddisplayimage}
+      <SimpsonsQuotesApi
+        displayImage={displayImage}
         toggleImage={toggleImage}
       />
       <AddListItemForm addListItem={addListItem} />
