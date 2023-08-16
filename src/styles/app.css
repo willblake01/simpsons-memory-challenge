@@ -30,8 +30,9 @@
   opacity: 0.75;
 }
 
-.landing__logo {
-  width: 400px;
+.quote-image {
+  height: 400px;
+  width: auto;
 }
 
 .form-container {
@@ -70,6 +71,16 @@
 .small-button {
   margin: 0 0 0 4px;
   border-radius: 25px;
+  background-color: orange;
+  color: white;
+}
+
+.submit-button {
+  background-color: white;
+  color: orange;
+}
+
+.increment-decrement-button {
   background-color: orange;
   color: white;
 }
