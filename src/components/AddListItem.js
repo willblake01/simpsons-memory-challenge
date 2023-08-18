@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import UserInput from '../UserInput'
-import LargeButton from '../Buttons/LargeButton'
+import UserInput from '../utils/UserInput'
+import LargeButton from '../utils/Buttons/LargeButton'
 
 const AddListItem = ({ items, setItems }) => {
   const [newItem, setNewItem] = useState('')

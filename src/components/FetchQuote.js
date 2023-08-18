@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import LargeButton from '../Buttons/LargeButton'
-import Tilt from '../ImageTilt'
+import LargeButton from '../utils/Buttons/LargeButton'
+import Tilt from '../utils/ImageTilt'
 
 const FetchQuote = () => {
   const [displayImage, setDisplayImage] = useState(true)
