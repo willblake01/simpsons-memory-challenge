@@ -4,7 +4,7 @@ import Tilt from '../ImageTilt'
 
 const FetchQuote = () => {
   const [displayImage, setDisplayImage] = useState(true)
-  const [displayQuoteAuthor, setDisplayQuoteAuthor] = useState(false)
+  const [displayAuthor, setdisplayAuthor] = useState(false)
   const [quoteData, setQuoteData] = useState({})
 
   const { author, image, quote } = quoteData
@@ -19,8 +19,8 @@ const FetchQuote = () => {
     setQuoteData(data[0])
   }
 
-  const toggleDisplayQuoteAuthor = () => {
-    setDisplayQuoteAuthor(true)
+  const toggleDisplayAuthor = () => {
+    setdisplayAuthor(true)
   }
 
   useEffect(() => {
@@ -41,9 +41,7 @@ const FetchQuote = () => {
         <q>{quote}</q>
         <br />
         <br />
-        <cite>
-          {displayQuoteAuthor ? `-${author}` : '-Anonymous Character'}
-        </cite>
+        <cite>{displayAuthor ? `-${author}` : '-Anonymous Character'}</cite>
       </blockquote>
       <div className="flex-row">
         <LargeButton
@@ -54,7 +52,7 @@ const FetchQuote = () => {
         <LargeButton
           text="Show Author"
           className="large-button"
-          onClick={toggleDisplayQuoteAuthor}
+          onClick={toggleDisplayAuthor}
         />
       </div>
     </Fragment>
