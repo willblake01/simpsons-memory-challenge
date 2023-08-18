@@ -9,9 +9,9 @@ const RenderList = ({ items, deleteListItem }) => {
   }
 
   return (
-    <section className="list">
-      <h2>List</h2>
-      <ol>
+    <section>
+      <ol className="list">
+        <h2>List</h2>
         {items.map(item => (
           <li key={item}>
             {item}

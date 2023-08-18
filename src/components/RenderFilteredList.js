@@ -1,9 +1,9 @@
 import React from 'react'
 
 const RenderList = ({ items }) => (
-  <section className="list">
-    <h2>Filtered List</h2>
-    <ol>
+  <section>
+    <ol className="list">
+      <h2>Filtered List</h2>
       {items
         .filter(item => item.length <= 5)
         .map((item, index) => {
