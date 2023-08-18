@@ -6,7 +6,6 @@ const AddListItemForm = ({ items, setItems }) => {
   const [newItem, setNewItem] = useState('')
 
   const addListItem = item => {
-    console.log('Now!!')
     let itemsCopy = [...items]
     itemsCopy = itemsCopy.concat(item)
 
@@ -14,7 +13,6 @@ const AddListItemForm = ({ items, setItems }) => {
   }
 
   const handleSubmit = e => {
-    console.log('Now!!')
     if (newItem) {
       e.preventDefault()
       addListItem(newItem)
@@ -37,12 +35,12 @@ const AddListItemForm = ({ items, setItems }) => {
           inputMode="text"
           newItem={newItem}
           handleItemInput={handleItemInput}
-          placeholder="Please Enter an Item"
+          placeholder="Character Name"
           id="add-item-id"
           onChange={handleItemInput}
         />
         <LargeButton
-          text="Submit"
+          text="Add"
           className="large-button"
           onClick={handleSubmit}
         />
