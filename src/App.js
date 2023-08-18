@@ -53,7 +53,6 @@ const App = () => {
         <RenderFilteredList items={items} />
       </div>
       <AddListItemForm addListItem={addListItem} />
-      <InitialCountForm count={count} setInitialCount={setInitialCount} />
     </div>
   )
 }
