@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import UserInput from './UserInput'
-import LargeButton from './LargeButton'
+import UserInput from '../UserInput'
+import LargeButton from '../Buttons/LargeButton'
 
-const AddListItemForm = ({ items, setItems }) => {
+const AddListItem = ({ items, setItems }) => {
   const [newItem, setNewItem] = useState('')
 
   const addListItem = item => {
@@ -49,4 +49,4 @@ const AddListItemForm = ({ items, setItems }) => {
   )
 }
 
-export default AddListItemForm
+export default AddListItem

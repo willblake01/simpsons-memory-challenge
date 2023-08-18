@@ -1,12 +1,17 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import LargeButton from './LargeButton'
-import Tilt from './ImageTilt'
+import LargeButton from '../Buttons/LargeButton'
+import Tilt from '../ImageTilt'
 
-const SimpsonsQuotesApi = ({ shoulddisplayimage, toggleImage }) => {
+const FetchQuote = ({ shoulddisplayimage }) => {
+  const [displayImage, setDisplayImage] = useState(true)
+  const [displayQuoteAuthor, setDisplayQuoteAuthor] = useState(false)
   const [quote, setQuote] = useState(null)
   const [quoteAuthor, setQuoteAuthor] = useState(null)
   const [quoteImage, setQuoteImage] = useState(null)
-  const [displayQuoteAuthor, setDisplayQuoteAuthor] = useState(false)
+
+  const toggleImage = () => {
+    displayImage === true ? setDisplayImage(false) : setDisplayImage(true)
+  }
 
   const fetchQuote = async () => {
     const response = await fetch('https://thesimpsonsquoteapi.glitch.me/quotes')
@@ -63,4 +68,4 @@ const SimpsonsQuotesApi = ({ shoulddisplayimage, toggleImage }) => {
   )
 }
 
-export default SimpsonsQuotesApi
+export default FetchQuote

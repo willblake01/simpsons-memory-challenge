@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import SmallButton from './SmallButton'
+import { SmallButton } from '../..'
 
-const RenderList = ({ items, deleteListItem }) => {
+const List = ({ items, setItems }) => {
   const [deleteButtonText] = useState('Delete')
 
-  const handleDeleteItem = item => {
-    deleteListItem(item)
+  const deleteListItem = item => {
+    let itemsCopy = [...items]
+    itemsCopy = itemsCopy.filter(listItem => listItem !== item)
+    setItems(itemsCopy)
   }
 
   return (
@@ -16,8 +18,8 @@ const RenderList = ({ items, deleteListItem }) => {
           <li key={item}>
             {item}
             <SmallButton
-              buttonText={deleteButtonText}
-              onClickEvent={() => handleDeleteItem(item)}
+              text={deleteButtonText}
+              onClick={deleteListItem(item)}
             />
           </li>
         ))}
@@ -26,4 +28,4 @@ const RenderList = ({ items, deleteListItem }) => {
   )
 }
 
-export default RenderList
+export default List

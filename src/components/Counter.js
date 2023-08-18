@@ -1,7 +1,16 @@
 import React from 'react'
-import LargeButton from './LargeButton'
+import { useLocalStorageState } from '../utils/useLocalStorageState'
+import LargeButton from '../Buttons/LargeButton'
 
-const Counter = ({ count, updateCount }) => {
+const Counter = () => {
+  const [count, setCount] = useLocalStorageState('count', 0)
+
+  const updateCount = newCount => {
+    let countCopy = count
+    countCopy = newCount
+    setCount(countCopy)
+  }
+
   const increment = () => updateCount(count + 1)
 
   const decrement = () => updateCount(count - 1)

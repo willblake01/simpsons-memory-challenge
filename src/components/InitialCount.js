@@ -1,14 +1,20 @@
 import React, { useState } from 'react'
-import UserInput from './UserInput'
-import LargeButton from './LargeButton'
+import UserInput from '../UserInput'
+import LargeButton from '../Buttons/LargeButton'
 
-const InitialCountForm = ({ count, setInitialCount }) => {
+const InitialCount = ({ count }) => {
   const [inputType] = useState('number')
   const [inputPattern] = useState('[0-9]')
   const [inputMode] = useState('numeric')
   const [inputPlaceholder] = useState('Please Enter a Number')
   const [inputId] = useState('initial-count-input')
   const [countInput, setCountInput] = useState(0)
+
+  const setInitialCount = initialCount => {
+    let countCopy = count
+    countCopy = initialCount
+    // setCount(countCopy)
+  }
 
   const handleCountSubmit = e => {
     if (countInput !== count) {
@@ -47,4 +53,4 @@ const InitialCountForm = ({ count, setInitialCount }) => {
   )
 }
 
-export default InitialCountForm
+export default InitialCount

@@ -1,14 +1,14 @@
 import React from 'react'
 
-const RenderFilteredList = ({ items }) => {
+const FilteredList = ({ items }) => {
   const theSimpsons = [
-    'Homer',
-    'Marge',
-    'Bart',
-    'Lisa',
-    'Maggie',
+    'Homer Simpson',
+    'Marge Simpson',
+    'Bart Simpson',
+    'Lisa Simpson',
+    'Maggie Simpson',
     "Santa's Little Helper",
-    'Snowball'
+    'Snowball II'
   ]
 
   return (
@@ -17,11 +17,11 @@ const RenderFilteredList = ({ items }) => {
         <h2>Filtered List</h2>
         {items
           .filter(item =>
-            theSimpsons.some(familyMember => item.includes(familyMember))
+            theSimpsons.some(familyMember => familyMember.includes(item))
           )
           .map((item, index) => {
             if (index % 2 === 0) {
-              return <li key={item}>{item}</li>
+              return <li key={`item-${index}`}>{item}</li>
             } else {
               return null
             }
@@ -31,4 +31,4 @@ const RenderFilteredList = ({ items }) => {
   )
 }
 
-export default RenderFilteredList
+export default FilteredList
