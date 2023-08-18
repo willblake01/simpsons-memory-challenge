@@ -1,20 +1,13 @@
 import React from 'react'
 
-const UserInput = ({
-  inputType,
-  inputPattern,
-  inputMode,
-  inputPlaceholder,
-  onChangeEvent,
-  inputId
-}) => (
+const UserInput = ({ type, inputMode, placeholder, onChange, pattern, id }) => (
   <input
-    type={inputType}
-    pattern={inputPattern}
+    type={type}
+    pattern={pattern}
     inputMode={inputMode}
-    placeholder={inputPlaceholder}
-    onChange={onChangeEvent}
-    id={inputId}
+    placeholder={placeholder}
+    onChange={onChange}
+    id={id}
   />
 )
 

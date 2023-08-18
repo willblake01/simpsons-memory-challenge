@@ -9,14 +9,14 @@ const Counter = ({ count, updateCount }) => {
   return (
     <div className="flex-row">
       <LargeButton
-        buttonText="Increment"
-        buttonClass="large-button"
-        onClickEvent={increment}
+        text="Increment"
+        className="large-button"
+        onClick={increment}
       />
       <LargeButton
-        buttonText="Decrement"
-        buttonClass="large-button"
-        onClickEvent={decrement}
+        text="Decrement"
+        className="large-button"
+        onClick={decrement}
       />
     </div>
   )

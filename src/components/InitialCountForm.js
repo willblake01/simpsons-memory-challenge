@@ -38,9 +38,9 @@ const InitialCountForm = ({ count, setInitialCount }) => {
           onChangeEvent={handleCountInput}
         />
         <LargeButton
-          buttonText="Submit"
-          buttonClass="large-button"
-          onClickEvent={handleCountSubmit}
+          text="Submit"
+          className="large-button"
+          onClick={handleCountSubmit}
         />
       </div>
     </form>

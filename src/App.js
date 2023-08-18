@@ -13,12 +13,6 @@ const App = () => {
   const [displayImage, setDisplayImage] = useState(true)
   const [items, setItems] = useLocalStorageState('items', [])
 
-  const addListItem = item => {
-    let itemsCopy = [...items]
-    itemsCopy = itemsCopy.concat(item)
-    setItems(itemsCopy)
-  }
-
   const deleteListItem = item => {
     let itemsCopy = [...items]
     itemsCopy = itemsCopy.filter(listItem => listItem !== item)
@@ -52,7 +46,7 @@ const App = () => {
         <RenderList items={items} deleteListItem={deleteListItem} />
         <RenderFilteredList items={items} />
       </div>
-      <AddListItemForm addListItem={addListItem} />
+      <AddListItemForm items={items} setItems={setItems} />
     </div>
   )
 }

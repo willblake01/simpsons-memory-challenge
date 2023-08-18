@@ -49,13 +49,13 @@ const SimpsonsQuotesApi = ({ shoulddisplayimage, toggleImage }) => {
       </blockquote>
       <div className="flex-row">
         <LargeButton
-          buttonText="Next Quote"
-          buttonClass="large-button"
+          text="Next Quote"
+          className="large-button"
           onClick={fetchQuote}
         />
         <LargeButton
-          buttonText="Show Author"
-          buttonClass="large-button"
+          text="Show Author"
+          className="large-button"
           onClick={toggleDisplayQuoteAuthor}
         />
       </div>

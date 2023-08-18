@@ -2,20 +2,24 @@ import React, { useState } from 'react'
 import UserInput from './UserInput'
 import LargeButton from './LargeButton'
 
-const AddListItemForm = ({ addListItem }) => {
-  const [inputType] = useState('text')
-  const [inputPattern] = useState('[A-Za-z]*')
-  const [inputMode] = useState('text')
-  const [inputPlaceholder] = useState('Please Enter an Item')
-  const [inputId] = useState('add-item-id')
+const AddListItemForm = ({ items, setItems }) => {
   const [newItem, setNewItem] = useState('')
 
-  const handleItemSubmit = e => {
+  const addListItem = item => {
+    console.log('Now!!')
+    let itemsCopy = [...items]
+    itemsCopy = itemsCopy.concat(item)
+
+    setItems(itemsCopy)
+  }
+
+  const handleSubmit = e => {
+    console.log('Now!!')
     if (newItem) {
       e.preventDefault()
       addListItem(newItem)
       setNewItem('')
-      document.getElementById(inputId).value = null
+      document.getElementById('add-item-id').value = null
     }
   }
 
@@ -28,19 +32,19 @@ const AddListItemForm = ({ addListItem }) => {
       <h1>Add a Simpsons Character to the List</h1>
       <div className="flex-row">
         <UserInput
-          inputType={inputType}
-          inputPattern={inputPattern}
-          inputMode={inputMode}
+          type="text"
+          pattern="[A-Za-z]*"
+          inputMode="text"
           newItem={newItem}
           handleItemInput={handleItemInput}
-          inputPlaceholder={inputPlaceholder}
-          inputId={inputId}
-          onChangeEvent={handleItemInput}
+          placeholder="Please Enter an Item"
+          id="add-item-id"
+          onChange={handleItemInput}
         />
         <LargeButton
-          buttonText="Submit"
-          buttonClass="large-button"
-          onClickEvent={handleItemSubmit}
+          text="Submit"
+          className="large-button"
+          onClick={handleSubmit}
         />
       </div>
     </form>
