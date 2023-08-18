@@ -1,57 +1,16 @@
-.app {
+.container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-}
-
-.heading {
-  margin: 48px 24px 24px 24px;
-  font-family: Simpsons;
-  font-size: 80px;
   align-items: center;
-}
+  flex-wrap: wrap;
+  margin: 20px 0 120px 0; }
 
-.landing {
-  margin: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.quote {
-  font-family: 'Simpsons';
-  font-size: 24px;
-  max-width: 800px;
-  border-radius: 25px;
-  padding: 20px;
-  background-color: white;
-  opacity: 0.75;
-}
-
-.quote-image {
-  height: 400px;
-  width: auto;
-}
-
-.form-container {
-  display: -ms-flexbox;
+.flex-row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.form {
-  margin: 20px;
-  padding: 20px;
-  border-radius: 25px;
-  background-color: orange;
-  color: white;
-}
+  align-items: center; }
 
 .large-button {
   margin: 10px;
@@ -65,27 +24,52 @@
   text-decoration: none;
   vertical-align: middle;
   background-color: white;
-  color: orange;
-}
+  color: orange; }
 
 .small-button {
   margin: 0 0 0 4px;
   border-radius: 25px;
   background-color: orange;
-  color: white;
-}
+  color: white; }
 
 .submit-button {
   background-color: white;
-  color: orange;
-}
+  color: orange; }
+
+.heading {
+  margin: 48px 24px 24px 24px;
+  font-family: Simpsons;
+  font-size: 80px; }
+
+.quote {
+  font-family: 'Simpsons';
+  font-size: 24px;
+  max-width: 800px;
+  border-radius: 25px;
+  padding: 20px;
+  background-color: white;
+  opacity: 0.75; }
+
+.quote-image {
+  height: 400px;
+  width: auto; }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 25px;
+  background-color: orange;
+  color: white;
+  max-width: 40em; }
 
 .increment-decrement-button {
   background-color: orange;
-  color: white;
-}
+  color: white; }
 
-.list-container {
+.list {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -97,14 +81,8 @@
   height: 100%;
   min-width: 200px;
   max-width: 400px;
-  background-color: white;
-}
+  background-color: white; }
 
 .count {
   margin: 24px;
-  font-size: 60px;
-}
-
-.counter-buttons {
-  margin-bottom: 60px;
-}
+  font-size: 60px; }

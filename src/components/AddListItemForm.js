@@ -24,9 +24,9 @@ const AddListItemForm = ({ addListItem }) => {
   }
 
   return (
-    <div className="form">
+    <form className="form">
       <h1>Add a Simpsons Character to the List</h1>
-      <form className="form-container">
+      <div className="flex-row">
         <UserInput
           inputType={inputType}
           inputPattern={inputPattern}
@@ -42,8 +42,8 @@ const AddListItemForm = ({ addListItem }) => {
           buttonClass="large-button"
           onClickEvent={handleItemSubmit}
         />
-      </form>
-    </div>
+      </div>
+    </form>
   )
 }
 

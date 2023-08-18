@@ -7,7 +7,7 @@ const Counter = ({ count, updateCount }) => {
   const decrement = () => updateCount(count - 1)
 
   return (
-    <div className="counter-buttons">
+    <div className="flex-row">
       <LargeButton
         buttonText="Increment"
         buttonClass="large-button"

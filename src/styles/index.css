@@ -1,22 +1,18 @@
 * {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 body {
-  background-image: url('https://amymhaddad.s3.amazonaws.com/morocco-blue.png');
+  background-image: url("https://amymhaddad.s3.amazonaws.com/morocco-blue.png");
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-}
+  font-family: sans-serif; }
 
 @font-face {
   font-family: 'Simpsons';
-  src: local('Simpsons'), url(../fonts/Simpsons/akbar.ttf) format('truetype');
-}
+  src: local("Simpsons"), url(../fonts/Simpsons/akbar.ttf) format("truetype"); }
 
 h1 {
-  margin: 0;
-}
+  margin: 0; }
 
 input {
   margin: 10px;
@@ -24,26 +20,21 @@ input {
   font-size: 1.25rem;
   line-height: 1.5;
   border-radius: 0.3rem;
-  border: 1px solid transparent;
-}
+  border: 1px solid transparent; }
 
 button {
-  border: 1px solid transparent;
-}
+  border: 1px solid transparent; }
 
 li {
-  margin: 6px;
-}
+  margin: 6px; }
 
 /* Removes arrows from number input */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: 0;
-}
+  margin: 0; }
 
 /* Firefox */
 input[type='number'] {
-  -moz-appearance: textfield;
-}
+  -moz-appearance: textfield; }

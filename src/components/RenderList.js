@@ -9,9 +9,9 @@ const RenderList = ({ items, deleteListItem }) => {
   }
 
   return (
-    <section className="list-container">
+    <section className="list">
       <h2>List</h2>
-      <ul>
+      <ol>
         {items.map(item => (
           <li key={item}>
             {item}
@@ -21,7 +21,7 @@ const RenderList = ({ items, deleteListItem }) => {
             />
           </li>
         ))}
-      </ul>
+      </ol>
     </section>
   )
 }

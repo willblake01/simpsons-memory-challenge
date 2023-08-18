@@ -24,9 +24,9 @@ const InitialCountForm = ({ count, setInitialCount }) => {
   }
 
   return (
-    <div className="form">
+    <form className="form">
       <h1>How Many Did You Get!?</h1>
-      <form className="form-container">
+      <div className="flex-row">
         <UserInput
           inputType={inputType}
           inputPattern={inputPattern}
@@ -42,8 +42,8 @@ const InitialCountForm = ({ count, setInitialCount }) => {
           buttonClass="large-button"
           onClickEvent={handleCountSubmit}
         />
-      </form>
-    </div>
+      </div>
+    </form>
   )
 }
 

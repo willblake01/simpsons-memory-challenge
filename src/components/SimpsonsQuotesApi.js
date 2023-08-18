@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import LargeButton from './LargeButton'
 import Tilt from './ImageTilt'
 
@@ -6,6 +6,7 @@ const SimpsonsQuotesApi = ({ shoulddisplayimage, toggleImage }) => {
   const [quote, setQuote] = useState(null)
   const [quoteAuthor, setQuoteAuthor] = useState(null)
   const [quoteImage, setQuoteImage] = useState(null)
+  const [displayQuoteAuthor, setDisplayQuoteAuthor] = useState(false)
 
   const fetchQuote = async () => {
     const response = await fetch('https://thesimpsonsquoteapi.glitch.me/quotes')
@@ -16,16 +17,20 @@ const SimpsonsQuotesApi = ({ shoulddisplayimage, toggleImage }) => {
     setQuoteImage(data[0].image)
   }
 
+  const toggleDisplayQuoteAuthor = () => {
+    setDisplayQuoteAuthor(true)
+  }
+
   useEffect(() => {
     fetchQuote()
   }, [])
 
-  const nextQuote = () => {
-    fetchQuote()
-  }
+  useEffect(() => {
+    setDisplayQuoteAuthor(false)
+  }, [quoteAuthor])
 
   return (
-    <div className="landing">
+    <Fragment>
       <Tilt>
         <img
           className="quote-image"
@@ -38,14 +43,23 @@ const SimpsonsQuotesApi = ({ shoulddisplayimage, toggleImage }) => {
         <q>{quote}</q>
         <br />
         <br />
-        <cite>{`-${quoteAuthor}`}</cite>
+        <cite>
+          {displayQuoteAuthor ? `-${quoteAuthor}` : '-Anonymous Character'}
+        </cite>
       </blockquote>
-      <LargeButton
-        buttonText="Next Quote"
-        buttonClass="large-button"
-        onClick={() => nextQuote()}
-      />
-    </div>
+      <div className="flex-row">
+        <LargeButton
+          buttonText="Next Quote"
+          buttonClass="large-button"
+          onClick={fetchQuote}
+        />
+        <LargeButton
+          buttonText="Show Author"
+          buttonClass="large-button"
+          onClick={toggleDisplayQuoteAuthor}
+        />
+      </div>
+    </Fragment>
   )
 }
 

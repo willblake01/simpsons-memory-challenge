@@ -42,18 +42,18 @@ const App = () => {
   }
 
   return (
-    <div className="app">
+    <div className="container">
       <h1 className="heading">The Simpsons Memory Challenge</h1>
       <SimpsonsQuotesApi
         displayImage={displayImage}
         toggleImage={toggleImage}
       />
+      <div className="flex-row">
+        <RenderList items={items} deleteListItem={deleteListItem} />
+        <RenderFilteredList items={items} />
+      </div>
       <AddListItemForm addListItem={addListItem} />
-      <RenderList items={items} deleteListItem={deleteListItem} />
-      <RenderFilteredList items={items} />
-      <InitialCountForm setInitialCount={setInitialCount} />
-      <h1 className="count">{count}</h1>
-      <Counter count={count} updateCount={updateCount} />
+      <InitialCountForm count={count} setInitialCount={setInitialCount} />
     </div>
   )
 }

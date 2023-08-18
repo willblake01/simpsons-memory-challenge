@@ -1,9 +1,9 @@
 import React from 'react'
 
 const RenderList = ({ items }) => (
-  <section className="list-container">
+  <section className="list">
     <h2>Filtered List</h2>
-    <ul>
+    <ol>
       {items
         .filter(item => item.length <= 5)
         .map((item, index) => {
@@ -13,7 +13,7 @@ const RenderList = ({ items }) => (
             return null
           }
         })}
-    </ul>
+    </ol>
   </section>
 )
 
