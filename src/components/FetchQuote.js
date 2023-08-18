@@ -2,12 +2,12 @@ import React, { useState, useEffect, Fragment } from 'react'
 import LargeButton from '../Buttons/LargeButton'
 import Tilt from '../ImageTilt'
 
-const FetchQuote = ({ shoulddisplayimage }) => {
+const FetchQuote = () => {
   const [displayImage, setDisplayImage] = useState(true)
   const [displayQuoteAuthor, setDisplayQuoteAuthor] = useState(false)
-  const [quote, setQuote] = useState(null)
-  const [quoteAuthor, setQuoteAuthor] = useState(null)
-  const [quoteImage, setQuoteImage] = useState(null)
+  const [quoteData, setQuoteData] = useState({})
+
+  const { author, image, quote } = quoteData
 
   const toggleImage = () => {
     displayImage === true ? setDisplayImage(false) : setDisplayImage(true)
@@ -16,10 +16,7 @@ const FetchQuote = ({ shoulddisplayimage }) => {
   const fetchQuote = async () => {
     const response = await fetch('https://thesimpsonsquoteapi.glitch.me/quotes')
     const data = await response.json()
-
-    setQuote(data[0].quote)
-    setQuoteAuthor(data[0].character)
-    setQuoteImage(data[0].image)
+    setQuoteData(data[0])
   }
 
   const toggleDisplayQuoteAuthor = () => {
@@ -30,18 +27,14 @@ const FetchQuote = ({ shoulddisplayimage }) => {
     fetchQuote()
   }, [])
 
-  useEffect(() => {
-    setDisplayQuoteAuthor(false)
-  }, [quoteAuthor])
-
   return (
     <Fragment>
       <Tilt>
         <img
           className="quote-image"
-          src={quoteImage}
+          src={image}
           alt="simpsons-memory-challenge"
-          shoulddisplayimage={shoulddisplayimage}
+          shoulddisplayimage={displayImage}
         />
       </Tilt>
       <blockquote className="quote">
@@ -49,7 +42,7 @@ const FetchQuote = ({ shoulddisplayimage }) => {
         <br />
         <br />
         <cite>
-          {displayQuoteAuthor ? `-${quoteAuthor}` : '-Anonymous Character'}
+          {displayQuoteAuthor ? `-${author}` : '-Anonymous Character'}
         </cite>
       </blockquote>
       <div className="flex-row">
