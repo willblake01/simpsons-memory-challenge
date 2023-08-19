@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import UserInput from '../utils/UserInput'
-import LargeButton from '../utils/Buttons/LargeButton'
+import { LargeButton, UserInput } from '../utils'
 
 const InitialCount = ({ count }) => {
   const [inputType] = useState('number')

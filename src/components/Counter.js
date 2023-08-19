@@ -1,6 +1,5 @@
 import React from 'react'
-import { useLocalStorageState } from '../utils/useLocalStorageState'
-import LargeButton from '../utils/Buttons/LargeButton'
+import { LargeButton, useLocalStorageState } from '../utils'
 
 const Counter = () => {
   const [count, setCount] = useLocalStorageState('count', 0)
