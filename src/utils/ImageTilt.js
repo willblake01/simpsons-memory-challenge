@@ -11,7 +11,7 @@ const Tilt = ({ children }) => {
       glare: true,
       'max-glare': 0.5
     })
-    return () => tiltNode.VanillaTilt.destroy()
+    return () => (tiltNode.VanillaTilt ? tiltNode.VanillaTilt.destroy() : null)
   }, [])
 
   return (
