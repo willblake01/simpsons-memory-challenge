@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
-import UserInput from '../utils/UserInput'
-import LargeButton from '../utils/Buttons/LargeButton'
+import UserInput from '../../../utils/UserInput'
+import LargeButton from '../../../utils/Buttons/LargeButton'
 
 const AddListItem = ({ items, setItems }) => {
   const [newItem, setNewItem] = useState('')
 
   const addListItem = item => {
     let itemsCopy = [...items]
-    itemsCopy = itemsCopy.concat(item)
 
-    setItems(itemsCopy)
+    if (itemsCopy.includes(item)) {
+      alert(`${item} already added, Please add a different character.`)
+    } else {
+      itemsCopy = itemsCopy.concat(item)
+      setItems(itemsCopy)
+    }
   }
 
   const handleSubmit = e => {

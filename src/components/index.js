@@ -1,6 +1,3 @@
-export { default as AddListItem } from './AddListItem'
-export { default as Counter } from './Counter'
-export { default as ImageTilt } from '../utils/ImageTilt'
 export { default as InitialCount } from './InitialCount'
 export { default as LargeButton } from '../utils/Buttons/LargeButton'
 export { default as Lists } from './Lists/Lists'

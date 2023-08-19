@@ -1,12 +1,18 @@
-import React from 'react'
-import { FilteredList, List } from './components'
+import React, { Fragment } from 'react'
+import { useLocalStorageState } from '../../utils'
+import { AddListItem, FilteredList, List } from './components'
 
-const Lists = ({ items, setItems }) => {
+const Lists = () => {
+  const [items, setItems] = useLocalStorageState('items', [])
+
   return (
-    <div className="flex-row">
-      <List items={items} setItems={setItems} />
-      <FilteredList items={items} />
-    </div>
+    <Fragment>
+      <div className="flex-row">
+        <List items={items} setItems={setItems} />
+        <FilteredList items={items} />
+      </div>
+      <AddListItem items={items} setItems={setItems} />
+    </Fragment>
   )
 }
 

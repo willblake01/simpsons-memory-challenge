@@ -3,7 +3,7 @@ import LargeButton from '../utils/Buttons/LargeButton'
 import Tilt from '../utils/ImageTilt'
 
 const FetchQuote = () => {
-  const [displayImage, setDisplayImage] = useState(true)
+  const [displayImage, setDisplayImage] = useState('true')
   const [displayAuthor, setdisplayAuthor] = useState(false)
   const [quoteData, setQuoteData] = useState({})
 

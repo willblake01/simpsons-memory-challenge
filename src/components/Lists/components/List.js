@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { SmallButton } from '../..'
 
 const List = ({ items, setItems }) => {
-  const [deleteButtonText] = useState('Delete')
-
   const deleteListItem = item => {
     let itemsCopy = [...items]
     itemsCopy = itemsCopy.filter(listItem => listItem !== item)
@@ -17,10 +15,7 @@ const List = ({ items, setItems }) => {
         {items.map(item => (
           <li key={item}>
             {item}
-            <SmallButton
-              text={deleteButtonText}
-              onClick={deleteListItem(item)}
-            />
+            <SmallButton text="Delete" onClick={() => deleteListItem(item)} />
           </li>
         ))}
       </ol>
