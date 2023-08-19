@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import { LargeButton, Tilt } from '../utils'
+import { LargeButton, Tilt } from './utils'
 import { FidgetSpinner } from 'react-loader-spinner'
 
 const FetchQuote = () => {
@@ -49,11 +49,7 @@ const FetchQuote = () => {
           ) : (
             <Fragment>
               <Tilt>
-                <img
-                  className="quote-image"
-                  src={image}
-                  alt="character-image"
-                />
+                <img className="quote-image" src={image} alt="character" />
               </Tilt>
               <blockquote className="quote">
                 <q>{quote}</q>
@@ -77,7 +73,7 @@ const FetchQuote = () => {
               onClick={toggleDisplayAuthor}
             />
             <LargeButton
-              text={displayHints ? 'Hide Hints' : 'Show Hints'}
+              text="Hide Hints"
               className="large-button"
               onClick={toggleDisplayHints}
             />
@@ -85,7 +81,7 @@ const FetchQuote = () => {
         </Fragment>
       ) : (
         <LargeButton
-          text={displayHints ? 'Hide Hints' : 'Show Hints'}
+          text="Show Hints"
           className="large-button"
           onClick={toggleDisplayHints}
         />

@@ -6,6 +6,14 @@
   margin: 20px 0 120px 0;
 }
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -42,7 +50,7 @@
   color: orange;
 }
 
-.heading {
+.header {
   margin: 48px 24px 24px 24px;
   font-family: Simpsons;
   font-size: 80px;
@@ -101,4 +109,15 @@
 .count {
   margin: 24px;
   font-size: 60px;
+}
+
+.constraints {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: start;
+  width: 100%;
+  z-index: 2;
 }

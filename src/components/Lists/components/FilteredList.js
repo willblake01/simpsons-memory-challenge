@@ -13,7 +13,7 @@ const FilteredList = ({ items }) => {
 
   return (
     <section>
-      <ol className="list">
+      <ul className="list">
         <h2>Filtered List</h2>
         {items
           .filter(item =>
@@ -26,7 +26,7 @@ const FilteredList = ({ items }) => {
               return null
             }
           })}
-      </ol>
+      </ul>
     </section>
   )
 }

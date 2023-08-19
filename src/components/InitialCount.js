@@ -1,27 +1,14 @@
 import React, { useState } from 'react'
-import { LargeButton, UserInput } from '../utils'
+import { useNavigate } from 'react-router-dom'
+import { LargeButton, UserInput } from './utils'
 
-const InitialCount = ({ count }) => {
-  const [inputType] = useState('number')
-  const [inputPattern] = useState('[0-9]')
-  const [inputMode] = useState('numeric')
-  const [inputPlaceholder] = useState('Please Enter a Number')
-  const [inputId] = useState('initial-count-input')
+const InitialCount = () => {
+  let navigate = useNavigate()
+
   const [countInput, setCountInput] = useState(0)
 
-  const setInitialCount = initialCount => {
-    let countCopy = count
-    countCopy = initialCount
-    // setCount(countCopy)
-  }
-
-  const handleCountSubmit = e => {
-    if (countInput !== count) {
-      e.preventDefault()
-      setInitialCount(countInput)
-      setCountInput(count)
-      document.getElementById(inputId).value = null
-    }
+  const handleCountSubmit = () => {
+    navigate('/challenge')
   }
 
   const handleCountInput = e => {
@@ -30,17 +17,15 @@ const InitialCount = ({ count }) => {
 
   return (
     <form className="form">
-      <h1>How Many Did You Get!?</h1>
+      <h1>How Many characters do you think you can name?</h1>
       <div className="flex-row">
         <UserInput
-          inputType={inputType}
-          inputPattern={inputPattern}
-          inputMode={inputMode}
-          countInput={countInput}
-          handleCountInput={handleCountInput}
-          inputPlaceholder={inputPlaceholder}
-          inputId={inputId}
-          onChangeEvent={handleCountInput}
+          type="number"
+          pattern="[0-9]"
+          mode="numeric"
+          placeholder="Please Enter a Number"
+          id="initial-count-input"
+          onChange={handleCountInput}
         />
         <LargeButton
           text="Submit"

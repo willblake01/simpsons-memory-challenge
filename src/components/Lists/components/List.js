@@ -1,5 +1,5 @@
 import React from 'react'
-import { SmallButton } from '../..'
+import { SmallButton } from './../../../components/utils'
 
 const List = ({ items, setItems }) => {
   const deleteListItem = item => {
@@ -10,7 +10,7 @@ const List = ({ items, setItems }) => {
 
   return (
     <section>
-      <ol className="list">
+      <ul className="list">
         <h2>List</h2>
         {items.map(item => (
           <li key={item}>
@@ -18,7 +18,7 @@ const List = ({ items, setItems }) => {
             <SmallButton text="Delete" onClick={() => deleteListItem(item)} />
           </li>
         ))}
-      </ol>
+      </ul>
     </section>
   )
 }

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { useLocalStorageState } from '../../utils'
+import { useLocalStorageState } from '../utils'
 import { AddListItem, FilteredList, List } from './components'
 
 const Lists = () => {
