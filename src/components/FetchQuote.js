@@ -1,23 +1,23 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { LargeButton, Tilt } from '../utils'
+import { FidgetSpinner } from 'react-loader-spinner'
 
 const FetchQuote = () => {
-  const [displayHints, setDisplayHints] = useState(true)
-  const [displayImage, setDisplayImage] = useState('true')
   const [displayAuthor, setdisplayAuthor] = useState(false)
+  const [displayHints, setDisplayHints] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [quoteData, setQuoteData] = useState({})
 
   const { character, image, quote } = quoteData
 
-  const toggleImage = () => {
-    displayImage === true ? setDisplayImage(false) : setDisplayImage(true)
-  }
-
   const fetchQuote = async () => {
+    setLoading(true)
     const response = await fetch('https://thesimpsonsquoteapi.glitch.me/quotes')
     const data = await response.json()
     setdisplayAuthor(false)
     setQuoteData(data[0])
+
+    setLoading(false)
   }
 
   const toggleDisplayAuthor = () => {
@@ -36,22 +36,35 @@ const FetchQuote = () => {
     <Fragment>
       {displayHints ? (
         <Fragment>
-          <Tilt>
-            <img
-              className="quote-image"
-              src={image}
-              alt="simpsons-memory-challenge"
-              shoulddisplayimage={displayImage}
+          {loading ? (
+            <FidgetSpinner
+              height="80"
+              width="80"
+              ariaLabel="dna-loading"
+              wrapperStyle={{ height: '522px' }}
+              wrapperClass="dna-wrapper"
+              ballColors={['#000000', '#ffffff', '#808080']}
+              backgroundColor="orange"
             />
-          </Tilt>
-          <blockquote className="quote">
-            <q>{quote}</q>
-            <br />
-            <br />
-            <cite>
-              {displayAuthor ? `-${character}` : '-Anonymous Character'}
-            </cite>
-          </blockquote>
+          ) : (
+            <Fragment>
+              <Tilt>
+                <img
+                  className="quote-image"
+                  src={image}
+                  alt="character-image"
+                />
+              </Tilt>
+              <blockquote className="quote">
+                <q>{quote}</q>
+                <br />
+                <br />
+                <cite>
+                  {displayAuthor ? `-${character}` : '-Anonymous Character'}
+                </cite>
+              </blockquote>
+            </Fragment>
+          )}
           <div className="flex-row">
             <LargeButton
               text="Next Quote"
