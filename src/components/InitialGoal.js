@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Context } from '../context'
 import { LargeButton, UserInput } from './utils'
 
-const InitialCount = () => {
+const InitialGoal = () => {
   let navigate = useNavigate()
+  const { setGoal } = useContext(Context)
 
-  const [countInput, setCountInput] = useState(0)
-
-  const handleCountSubmit = () => {
+  const handleGoalSubmit = () => {
     navigate('/challenge')
   }
 
-  const handleCountInput = e => {
-    setCountInput(parseInt(e.target.value, 10))
+  const handleGoalInput = e => {
+    setGoal(parseInt(e.target.value, 10))
   }
 
   return (
@@ -25,16 +25,16 @@ const InitialCount = () => {
           mode="numeric"
           placeholder="Please Enter a Number"
           id="initial-count-input"
-          onChange={handleCountInput}
+          onChange={handleGoalInput}
         />
         <LargeButton
           text="Submit"
           className="large-button"
-          onClick={handleCountSubmit}
+          onClick={handleGoalSubmit}
         />
       </div>
     </form>
   )
 }
 
-export default InitialCount
+export default InitialGoal

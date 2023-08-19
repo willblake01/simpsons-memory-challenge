@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import '../styles/app.css'
-import { InitialCount } from '../components'
+import { InitialGoal } from '../components'
 
 const Landing = () => (
   <Fragment>
-    <InitialCount />
+    <InitialGoal />
   </Fragment>
 )
 
