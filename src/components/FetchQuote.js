@@ -6,7 +6,7 @@ const FetchQuote = () => {
   const [displayAuthor, setdisplayAuthor] = useState(false)
   const [quoteData, setQuoteData] = useState({})
 
-  const { author, image, quote } = quoteData
+  const { character, image, quote } = quoteData
 
   const toggleImage = () => {
     displayImage === true ? setDisplayImage(false) : setDisplayImage(true)
@@ -19,7 +19,7 @@ const FetchQuote = () => {
   }
 
   const toggleDisplayAuthor = () => {
-    setdisplayAuthor(true)
+    displayAuthor ? setdisplayAuthor(false) : setdisplayAuthor(true)
   }
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const FetchQuote = () => {
         <q>{quote}</q>
         <br />
         <br />
-        <cite>{displayAuthor ? `-${author}` : '-Anonymous Character'}</cite>
+        <cite>{displayAuthor ? `-${character}` : '-Anonymous Character'}</cite>
       </blockquote>
       <div className="flex-row">
         <LargeButton
@@ -49,7 +49,7 @@ const FetchQuote = () => {
           onClick={fetchQuote}
         />
         <LargeButton
-          text="Show Author"
+          text={displayAuthor ? 'Hide Author' : 'Show Author'}
           className="large-button"
           onClick={toggleDisplayAuthor}
         />
