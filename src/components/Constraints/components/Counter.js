@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../../../context'
 import { LargeButton, useLocalStorageState } from '../../utils'
 
 const Counter = () => {
-  const [count, setCount] = useLocalStorageState('count', 0)
+  const { goal, setGoal } = useContext(Context)
 
-  const updateCount = newCount => {
-    let countCopy = count
-    countCopy = newCount
-    setCount(countCopy)
+  const increment = () => {
+    if (goal >= 0) {
+      setGoal(goal + 1)
+    }
   }
-
-  const increment = () => updateCount(count + 1)
-
-  const decrement = () => updateCount(count - 1)
+  const decrement = () => {
+    if (goal > 0) {
+      setGoal(goal - 1)
+    }
+  }
 
   return (
     <div className="flex-row">
