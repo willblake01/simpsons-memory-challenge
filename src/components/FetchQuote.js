@@ -1,6 +1,11 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { LargeButton, Tilt } from './utils'
 import { FidgetSpinner } from 'react-loader-spinner'
+import audio from '../public/audio/The_Simpsons_Theme_Song.mp3'
+
+const start = () => {
+  new Audio(audio).play()
+}
 
 const FetchQuote = () => {
   const [displayAuthor, setdisplayAuthor] = useState(false)
@@ -71,6 +76,11 @@ const FetchQuote = () => {
               text={displayAuthor ? 'Hide Author' : 'Show Author'}
               className="large-button"
               onClick={toggleDisplayAuthor}
+            />
+            <LargeButton
+              text={'Theme Song'}
+              className="large-button"
+              onClick={start}
             />
             <LargeButton
               text="Hide Hints"

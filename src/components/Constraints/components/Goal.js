@@ -18,7 +18,7 @@ const Goal = () => {
         <Fragment>
           <Counter />
           <SmallButton
-            text="Set"
+            text="Done"
             className="small-button"
             onClick={toggleRevise}
           />

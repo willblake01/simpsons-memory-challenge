@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Context } from '../../../context'
-import { LargeButton, useLocalStorageState } from '../../utils'
+import { LargeButton } from '../../utils'
 
 const Counter = () => {
   const { goal, setGoal } = useContext(Context)
@@ -19,14 +19,14 @@ const Counter = () => {
   return (
     <div className="flex-row">
       <LargeButton
-        text="Increment"
-        className="large-button"
-        onClick={increment}
-      />
-      <LargeButton
         text="Decrement"
         className="large-button"
         onClick={decrement}
+      />
+      <LargeButton
+        text="Increment"
+        className="large-button"
+        onClick={increment}
       />
     </div>
   )

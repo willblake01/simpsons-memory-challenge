@@ -17,7 +17,12 @@ const InitialGoal = () => {
 
   return (
     <form className="form">
-      <h1>How Many characters do you think you can name?</h1>
+      <h1>
+        How many characters can you name in 10 minutes? You can revise after the
+        challenge starts but choose carefully, you can only do this once in the
+        first 5 minutes! To score points for the challenge you must at least
+        reach your goal.
+      </h1>
       <div className="flex-row">
         <UserInput
           type="number"

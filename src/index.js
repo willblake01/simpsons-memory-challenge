@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './styles/index.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import './public/styles/index.css'
 import { ContextProvider } from './context'
 import Header from './components/Header'
 import { Challenge, Landing } from './pages'

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import '../styles/app.css'
+import '../public/styles/app.css'
 import { useNavigate } from 'react-router-dom'
 import { Constraints, FetchQuote, Lists } from '../components'
 import { LargeButton } from '../components/utils'
