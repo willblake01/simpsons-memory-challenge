@@ -10,8 +10,9 @@ const msToTime = s => {
   var secs = s % 60
   s = (s - secs) / 60
   var mins = s % 60
+  // var hrs = (s - mins) / 60
 
-  return pad(mins) + ':' + pad(secs)
+  return mins + ':' + pad(secs)
 }
 
 module.exports = { msToTime }

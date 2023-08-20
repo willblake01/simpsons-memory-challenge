@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { msToTime } from '../../../utils/Conversions'
+import { useLocalStorageState } from '../../utils'
 
 const Clock = () => {
-  const time = 600000
+  const [clock, setClock] = useLocalStorageState('time', 480000)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (clock > 0) {
+        setClock(clock - 1000)
+      }
+    }, 1000)
+    return () => clearInterval(interval)
+  })
 
   return (
     <div className="flex-column">
       <h1>Clock</h1>
-      {<h1>{msToTime(time)}</h1>}
+      {<h1>{msToTime(clock)}</h1>}
     </div>
   )
 }
