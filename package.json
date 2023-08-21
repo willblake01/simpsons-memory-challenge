@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
+    "classnames": "^2.3.2",
     "husky": "^0.14.3",
     "lint-staged": "^6.1.0",
     "node-sass": "^9.0.0",
