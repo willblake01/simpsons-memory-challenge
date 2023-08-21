@@ -16,7 +16,9 @@ const Clock = () => {
   })
 
   return (
-    <div className={classNames('flex-column', 'centered')}>
+    <div
+      className={classNames('flex-column', 'justify-center', 'align-center')}
+    >
       <h1>Clock</h1>
       {<h1>{msToTime(clock)}</h1>}
     </div>

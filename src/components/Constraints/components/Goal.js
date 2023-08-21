@@ -12,7 +12,9 @@ const Goal = () => {
   const toggleRevise = () => setRevise(!revise)
 
   return (
-    <div className={classNames('flex-column', 'centered')}>
+    <div
+      className={classNames('flex-column', 'justify-center', 'align-center')}
+    >
       <h1>Goal</h1>
       <h1>{goal}</h1>
       {revise ? (

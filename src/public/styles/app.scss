@@ -12,8 +12,11 @@
   flex-direction: row;
 }
 
-.centered {
+.justify-center {
   justify-content: center;
+}
+
+.align-center {
   align-items: center;
 }
 
@@ -23,6 +26,10 @@
 
 .space-around {
   justify-content: space-around;
+}
+
+.width-max-content {
+  width: max-content;
 }
 
 .large-button {
@@ -116,11 +123,14 @@
 
 .constraints {
   position: relative;
+  align-self: start;
   width: 100%;
   z-index: 2;
 }
 
-.fetch-quote {
+.fetchQuote {
   position: relative;
+  top: 0;
+  right: 0;
   z-index: 1;
 }

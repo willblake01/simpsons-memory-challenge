@@ -10,7 +10,14 @@ import { Challenge, Landing } from './pages'
 ReactDOM.render(
   <BrowserRouter>
     <ContextProvider>
-      <div className={classNames('container', 'flex-column', 'centered')}>
+      <div
+        className={classNames(
+          'container',
+          'flex-column',
+          'justify-center',
+          'align-center'
+        )}
+      >
         <Header />
         <Routes>
           <Route path="/" element={<Landing />} />

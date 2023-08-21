@@ -1,16 +1,26 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import '../public/styles/app.css'
 import { useNavigate } from 'react-router-dom'
-import { Constraints, FetchQuote, Lists } from '../components'
+import { Constraints, Hints, Lists } from '../components'
 import { LargeButton } from '../components/utils'
 
 const Challenge = () => {
   let navigate = useNavigate()
 
+  const [displayHints, setDisplayHints] = useState(true)
+
   return (
     <Fragment>
       <Constraints />
-      <FetchQuote />
+      {displayHints ? (
+        <Hints setDisplayHints={setDisplayHints} />
+      ) : (
+        <LargeButton
+          text="Show Hints"
+          className="large-button"
+          onClick={() => setDisplayHints(true)}
+        />
+      )}
       <Lists />
       <LargeButton
         text="Finished"
