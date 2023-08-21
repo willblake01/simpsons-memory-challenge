@@ -4,15 +4,19 @@ import { Context } from '../context'
 import { LargeButton, UserInput } from './utils'
 
 const InitialGoal = () => {
-  let navigate = useNavigate()
-  const { setGoal } = useContext(Context)
+  const navigate = useNavigate()
 
-  const handleGoalSubmit = () => {
-    navigate('/challenge')
-  }
+  const { setClock, setGoal, setRawList } = useContext(Context)
 
   const handleGoalInput = e => {
-    setGoal(parseInt(e.target.value, 10))
+    const { value } = e.target
+    setGoal(parseInt(value, 10))
+  }
+
+  const startChallenge = () => {
+    setRawList([])
+    setClock(480000)
+    navigate('/challenge')
   }
 
   return (
@@ -35,7 +39,7 @@ const InitialGoal = () => {
         <LargeButton
           text="Submit"
           className="large-button"
-          onClick={handleGoalSubmit}
+          onClick={startChallenge}
         />
       </div>
     </form>

@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { Context } from './../../../context'
 
-const FilteredList = ({ items }) => {
+const FilteredList = () => {
+  const { rawList } = useContext(Context)
+
   const [filteredList, setFilteredList] = useState([])
 
   const theSimpsons = [
@@ -14,13 +17,15 @@ const FilteredList = ({ items }) => {
   ]
 
   useEffect(() => {
-    const nuclearFamily = items
-      .filter(item =>
-        theSimpsons.some(familyMember => familyMember.includes(item))
+    const nuclearFamily = rawList
+      .filter(character =>
+        theSimpsons.some(familyMember => familyMember.includes(character))
       )
-      .map((item, index) => <li key={`${item}-${index}`}>{item}</li>)
+      .map((filteredCharacter, index) => (
+        <li key={`${filteredCharacter}-${index}`}>{filteredCharacter}</li>
+      ))
     setFilteredList(nuclearFamily)
-  }, [items])
+  }, [rawList])
 
   return (
     <section>

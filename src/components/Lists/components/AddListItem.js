@@ -1,17 +1,25 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { Context } from './../../../context'
 import { LargeButton, UserInput } from './../../../components/utils'
 
-const AddListItem = ({ items, setItems }) => {
+const AddListItem = () => {
+  const { rawList, setRawList } = useContext(Context)
+
   const [newItem, setNewItem] = useState('')
 
-  const addListItem = item => {
-    let itemsCopy = [...items]
+  const handleInput = e => {
+    const { value } = e.target
+    setNewItem(value)
+  }
 
-    if (itemsCopy.includes(item)) {
-      alert(`${item} already added, Please add a different character.`)
+  const addListItem = character => {
+    const rawListCopy = [...rawList]
+
+    if (rawListCopy.includes(character)) {
+      alert(`${character} already added, Please add a different character.`)
     } else {
-      itemsCopy = itemsCopy.concat(item)
-      setItems(itemsCopy)
+      const updatedRawList = rawListCopy.concat(character)
+      setRawList(updatedRawList)
     }
   }
 
@@ -24,10 +32,6 @@ const AddListItem = ({ items, setItems }) => {
     }
   }
 
-  const handleItemInput = e => {
-    setNewItem(e.target.value)
-  }
-
   return (
     <form className="form">
       <h1>Add a Simpsons Character to the List</h1>
@@ -37,10 +41,10 @@ const AddListItem = ({ items, setItems }) => {
           pattern="[A-Za-z]*"
           inputMode="text"
           newItem={newItem}
-          handleItemInput={handleItemInput}
+          handleInput={handleInput}
           placeholder="Character Name"
           id="add-item-id"
-          onChange={handleItemInput}
+          onChange={handleInput}
         />
         <LargeButton
           text="Add"

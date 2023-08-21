@@ -5,7 +5,7 @@ import { Constraints, Hints, Lists } from '../components'
 import { LargeButton } from '../components/utils'
 
 const Challenge = () => {
-  let navigate = useNavigate()
+  const navigate = useNavigate()
 
   const [displayHints, setDisplayHints] = useState(true)
 

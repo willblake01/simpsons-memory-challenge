@@ -10,7 +10,7 @@ const start = () => {
 }
 
 const Hints = ({ setDisplayHints }) => {
-  const [displayAuthor, setdisplayAuthor] = useState(false)
+  const [displayAuthor, setDisplayAuthor] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [quoteData, setQuoteData] = useState({})
 
@@ -20,14 +20,10 @@ const Hints = ({ setDisplayHints }) => {
     setIsLoading(true)
     const response = await fetch('https://thesimpsonsquoteapi.glitch.me/quotes')
     const data = await response.json()
-    setdisplayAuthor(false)
+    setDisplayAuthor(false)
     setQuoteData(data[0])
 
     setIsLoading(false)
-  }
-
-  const toggleDisplayAuthor = () => {
-    displayAuthor ? setdisplayAuthor(false) : setdisplayAuthor(true)
   }
 
   useEffect(() => {
@@ -35,7 +31,7 @@ const Hints = ({ setDisplayHints }) => {
   }, [])
 
   return (
-    <div className="fetch-quote">
+    <div className="hints">
       {isLoading ? (
         <FidgetSpinner
           height="80"
@@ -49,6 +45,7 @@ const Hints = ({ setDisplayHints }) => {
       ) : (
         <div
           className={classNames(
+            'hints',
             'flex-column',
             'justify-center',
             'align-center'
@@ -65,7 +62,7 @@ const Hints = ({ setDisplayHints }) => {
             fetchQuote={fetchQuote}
             setDisplayHints={setDisplayHints}
             start={start}
-            toggleDisplayAuthor={toggleDisplayAuthor}
+            setDisplayAuthor={setDisplayAuthor}
           />
         </div>
       )}

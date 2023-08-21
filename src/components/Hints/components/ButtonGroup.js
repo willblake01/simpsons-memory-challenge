@@ -5,9 +5,9 @@ import { LargeButton } from './../../utils'
 const ButtonGroup = ({
   displayAuthor,
   fetchQuote,
+  setDisplayAuthor,
   setDisplayHints,
-  start,
-  toggleDisplayAuthor
+  start
 }) => (
   <div
     className={classNames(
@@ -25,7 +25,7 @@ const ButtonGroup = ({
     <LargeButton
       text={displayAuthor ? 'Hide Author' : 'Show Author'}
       className="large-button"
-      onClick={toggleDisplayAuthor}
+      onClick={() => setDisplayAuthor(!displayAuthor)}
     />
     <LargeButton text={'Theme Song'} className="large-button" onClick={start} />
     <LargeButton

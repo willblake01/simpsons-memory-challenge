@@ -1,24 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { Context } from './../../../context'
 import { SmallButton } from './../../../components/utils'
 
-const List = ({ items, setItems }) => {
+const List = () => {
+  const { rawList } = useContext(Context)
+
   const [list, setList] = useState([])
 
   const deleteListItem = item => {
-    let itemsCopy = [...items]
-    itemsCopy = itemsCopy.filter(listItem => listItem !== item)
-    setItems(itemsCopy)
+    let rawListCopy = [...rawList]
+    const rawListFiltered = rawListCopy.filter(listItem => listItem !== item)
+    setList(rawListFiltered)
   }
 
   useEffect(() => {
-    const allCharacters = items.map((item, index) => (
-      <li key={`${item}-${index}`}>
-        {item}
-        <SmallButton text="Delete" onClick={() => deleteListItem(item)} />
+    const allCharacters = rawList.map((character, index) => (
+      <li key={`${character}-${index}`}>
+        {character}
+        <SmallButton text="Delete" onClick={() => deleteListItem(character)} />
       </li>
     ))
     setList(allCharacters)
-  }, [items])
+  }, [rawList])
 
   return (
     <section>
