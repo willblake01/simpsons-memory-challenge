@@ -1,13 +1,27 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useContext, useEffect, useState } from 'react'
 import '../public/styles/app.css'
+import { Context } from '../context'
 import { useNavigate } from 'react-router-dom'
 import { Constraints, Hints, Lists } from '../components'
 import { LargeButton } from '../components/utils'
 
 const Challenge = () => {
+  const { clock, setClock } = useContext(Context)
+
   const navigate = useNavigate()
 
   const [displayHints, setDisplayHints] = useState(true)
+
+  const endChallenge = () => {
+    setClock(0)
+    navigate('/score')
+  }
+
+  useEffect(() => {
+    if (clock === 0) {
+      endChallenge()
+    }
+  })
 
   return (
     <Fragment>
@@ -25,7 +39,7 @@ const Challenge = () => {
       <LargeButton
         text="Finished"
         className="large-button"
-        onClick={() => navigate('/score')}
+        onClick={endChallenge}
       />
     </Fragment>
   )

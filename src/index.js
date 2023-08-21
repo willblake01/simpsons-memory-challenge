@@ -5,7 +5,7 @@ import './public/styles/index.css'
 import classNames from 'classnames'
 import { ContextProvider } from './context'
 import Header from './components/Header'
-import { Challenge, Landing } from './pages'
+import { Challenge, Landing, Score } from './pages'
 
 ReactDOM.render(
   <BrowserRouter>
@@ -22,6 +22,7 @@ ReactDOM.render(
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/challenge" element={<Challenge />} />
+          <Route path="/score" element={<Score />} />
         </Routes>
       </div>
     </ContextProvider>
