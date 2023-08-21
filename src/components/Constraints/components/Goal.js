@@ -1,4 +1,5 @@
 import React, { Fragment, useContext, useState } from 'react'
+import classNames from 'classnames'
 import { Context } from '../../../context'
 import { Counter } from './../components'
 import { SmallButton } from '../../../components/utils'
@@ -11,7 +12,7 @@ const Goal = () => {
   const toggleRevise = () => setRevise(!revise)
 
   return (
-    <div className="flex-column">
+    <div className={classNames('flex-column', 'centered')}>
       <h1>Goal</h1>
       <h1>{goal}</h1>
       {revise ? (

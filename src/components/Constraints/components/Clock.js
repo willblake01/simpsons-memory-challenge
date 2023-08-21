@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react'
+import classNames from 'classnames'
 import { Context } from '../../../context'
 import { msToTime } from '../../../utils/Conversions'
 
@@ -15,7 +16,7 @@ const Clock = () => {
   })
 
   return (
-    <div className="flex-column">
+    <div className={classNames('flex-column', 'centered')}>
       <h1>Clock</h1>
       {<h1>{msToTime(clock)}</h1>}
     </div>

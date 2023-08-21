@@ -1,20 +1,29 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px 0 120px 0; }
+  margin: 20px 0 120px 0;
+}
 
 .flex-column {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+}
 
 .flex-row {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+}
 
 .centered {
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+}
+
+.align-start {
+  align-items: start;
+}
+
+.space-around {
+  justify-content: space-around;
+}
 
 .large-button {
   margin: 20px 5px 20px 5px;
@@ -28,23 +37,27 @@
   text-decoration: none;
   vertical-align: middle;
   background-color: white;
-  color: orange; }
+  color: orange;
+}
 
 .small-button {
   margin: 0 0 0 4px;
   padding: 1px 4px;
   border-radius: 18px;
   background-color: orange;
-  color: white; }
+  color: white;
+}
 
 .submit-button {
   background-color: white;
-  color: orange; }
+  color: orange;
+}
 
 .header {
   margin: 48px 24px 24px 24px;
   font-family: Simpsons;
-  font-size: 80px; }
+  font-size: 80px;
+}
 
 .quote {
   font-family: 'Simpsons';
@@ -53,11 +66,13 @@
   border-radius: 25px;
   padding: 20px;
   background-color: white;
-  opacity: 0.75; }
+  opacity: 0.75;
+}
 
 .quote-image {
   height: 400px;
-  width: auto; }
+  width: auto;
+}
 
 .form {
   display: flex;
@@ -68,11 +83,13 @@
   border-radius: 25px;
   background-color: orange;
   color: white;
-  max-width: 40em; }
+  max-width: 40em;
+}
 
 .increment-decrement-button {
   background-color: orange;
-  color: white; }
+  color: white;
+}
 
 .list {
   display: flex;
@@ -85,22 +102,25 @@
   min-height: 200px;
   min-width: 200px;
   max-width: 400px;
-  background-color: white; }
-
+  background-color: white;
+}
 .list h2 {
   align-self: center;
-  margin-bottom: 8px; }
+  margin-bottom: 8px;
+}
 
 .count {
   margin: 24px;
-  font-size: 60px; }
+  font-size: 60px;
+}
 
 .constraints {
   position: relative;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: start;
   width: 100%;
-  z-index: 2; }
+  z-index: 2;
+}
+
+.fetch-quote {
+  position: relative;
+  z-index: 1;
+}
