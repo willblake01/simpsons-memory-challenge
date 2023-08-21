@@ -48,7 +48,7 @@ const FetchQuote = () => {
               ariaLabel="dna-loading"
               wrapperStyle={{ height: '522px' }}
               wrapperClass="dna-wrapper"
-              ballColors={['#000000', '#ffffff', '#808080']}
+              ballColors={['#ffffff', '#ffffff', '#ffffff']}
               backgroundColor="orange"
             />
           ) : (

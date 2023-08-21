@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { Context } from '../../../context'
 import { msToTime } from '../../../utils/Conversions'
-import { useLocalStorageState } from '../../utils'
 
 const Clock = () => {
-  const [clock, setClock] = useLocalStorageState('time', 480000)
+  const { clock, setClock } = useContext(Context)
 
   useEffect(() => {
     const interval = setInterval(() => {
