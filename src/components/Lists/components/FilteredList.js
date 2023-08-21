@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const FilteredList = ({ items }) => {
+  const [filteredList, setFilteredList] = useState([])
+
   const theSimpsons = [
     'Homer Simpson',
     'Marge Simpson',
@@ -11,21 +13,20 @@ const FilteredList = ({ items }) => {
     'Snowball II'
   ]
 
+  useEffect(() => {
+    const nuclearFamily = items
+      .filter(item =>
+        theSimpsons.some(familyMember => familyMember.includes(item))
+      )
+      .map((item, index) => <li key={`${item}-${index}`}>{item}</li>)
+    setFilteredList(nuclearFamily)
+  }, [items])
+
   return (
     <section>
       <ul className="list">
         <h2>Filtered List</h2>
-        {items
-          .filter(item =>
-            theSimpsons.some(familyMember => familyMember.includes(item))
-          )
-          .map((item, index) => {
-            if (index % 2 === 0) {
-              return <li key={`item-${index}`}>{item}</li>
-            } else {
-              return null
-            }
-          })}
+        {filteredList}
       </ul>
     </section>
   )
