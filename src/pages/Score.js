@@ -3,8 +3,7 @@ import classNames from 'classnames'
 import { Context } from '../context'
 
 const Score = () => {
-  const { rawList } = useContext(Context)
-  const score = rawList.length
+  const { score } = useContext(Context)
 
   return (
     <div

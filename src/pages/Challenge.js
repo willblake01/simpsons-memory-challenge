@@ -6,7 +6,7 @@ import { Constraints, Hints, Lists } from '../components'
 import { LargeButton } from '../components/utils'
 
 const Challenge = () => {
-  const { clock, setClock } = useContext(Context)
+  const { clock, setClock, setRawList } = useContext(Context)
 
   const navigate = useNavigate()
 
@@ -14,6 +14,7 @@ const Challenge = () => {
 
   const endChallenge = () => {
     setClock(0)
+    setRawList([])
     navigate('/score')
   }
 

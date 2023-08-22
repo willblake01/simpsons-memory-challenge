@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './public/styles/index.css'
 import classNames from 'classnames'
@@ -7,7 +7,9 @@ import { ContextProvider } from './context'
 import Header from './components/Header'
 import { Challenge, Landing, Score } from './pages'
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'))
+
+root.render(
   <BrowserRouter>
     <ContextProvider>
       <div
@@ -26,6 +28,5 @@ ReactDOM.render(
         </Routes>
       </div>
     </ContextProvider>
-  </BrowserRouter>,
-  document.getElementById('root')
+  </BrowserRouter>
 )
