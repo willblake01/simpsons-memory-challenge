@@ -22,7 +22,8 @@ export const ContextProvider = ({ children }) => {
     setGoal,
     rawList,
     setRawList,
-    score
+    score,
+    setScore
   }
 
   return <Context.Provider value={context}>{children}</Context.Provider>
