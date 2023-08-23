@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import classNames from 'classnames'
 import { useLocalStorageState } from './../../components/utils'
 import { FidgetSpinner } from 'react-loader-spinner'
@@ -60,12 +60,16 @@ const Hints = ({ setDisplayHints }) => {
             'align-center'
           )}
         >
-          <Image image={image} />
-          <Quote
-            character={character}
-            displayAuthor={displayAuthor}
-            quote={quote}
-          />
+          {quoteData ? (
+            <Fragment>
+              <Image image={image} />
+              <Quote
+                character={character}
+                displayAuthor={displayAuthor}
+                quote={quote}
+              />
+            </Fragment>
+          ) : null}
           <ButtonGroup
             displayAuthor={displayAuthor}
             fetchQuote={fetchQuote}
