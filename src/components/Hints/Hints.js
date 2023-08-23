@@ -17,16 +17,20 @@ const Hints = ({ setDisplayHints }) => {
 
   const { character, image, quote } = quoteData
 
-  const fetchQuote = async () => {
-    setIsLoading(true)
+  const fetchData = async () => {
+    const response = await fetch('https://thesimpsonsquoteapi.glitch.me/quotes')
+    const data = await response.json().then(data => data[0])
+    return data
+  }
 
-    await fetch('https://thesimpsonsquoteapi.glitch.me/quotes').then(response =>
-      response.json().then(data => {
-        setDisplayAuthor(false)
-        setQuoteData(data[0])
-        setIsLoading(false)
-      })
-    )
+  const fetchQuote = () => {
+    setIsLoading(true)
+    const setData = async () => {
+      setDisplayAuthor(false)
+      const data = await fetchData()
+      setQuoteData(data)
+    }
+    setData().then(() => setIsLoading(false))
   }
 
   useEffect(() => {
