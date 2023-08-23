@@ -7,7 +7,9 @@ const ButtonGroup = ({
   handleFetchQuote,
   setDisplayAuthor,
   setDisplayHints,
-  start
+  start,
+  pause,
+  songIsPlaying
 }) => (
   <div
     className={classNames(
@@ -27,7 +29,11 @@ const ButtonGroup = ({
       className="large-button"
       onClick={() => setDisplayAuthor(!displayAuthor)}
     />
-    <LargeButton text={'Theme Song'} className="large-button" onClick={start} />
+    <LargeButton
+      text={songIsPlaying ? 'Pause Song' : 'Theme Song'}
+      className="large-button"
+      onClick={songIsPlaying ? pause : start}
+    />
     <LargeButton
       text="Hide Hints"
       className="large-button"

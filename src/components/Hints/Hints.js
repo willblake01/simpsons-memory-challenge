@@ -1,21 +1,36 @@
-import React, { Fragment, useState, useEffect } from 'react'
-import classNames from 'classnames'
+import React, { Fragment, useEffect, useState } from 'react'
 import { useLocalStorageState } from './../../components/utils'
+import classNames from 'classnames'
+import audio from '../../public/audio/The_Simpsons_Theme_Song.mp3'
 import { FidgetSpinner } from 'react-loader-spinner'
 import { Image, Quote } from './components'
-import audio from '../../public/audio/The_Simpsons_Theme_Song.mp3'
 import ButtonGroup from './components/ButtonGroup'
 
-const start = () => {
-  new Audio(audio).play()
-}
+const themeSong = new Audio(audio)
 
 const Hints = ({ setDisplayHints }) => {
   const [displayAuthor, setDisplayAuthor] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [quoteData, setQuoteData] = useLocalStorageState('quoteData', null)
+  const [songIsPlaying, setSongIsPlaying] = useState(false)
 
   const { character, image, quote } = { ...quoteData }
+
+  const start = () => {
+    if (!songIsPlaying) {
+      new Promise((resolve, reject) => {
+        resolve(setSongIsPlaying(true))
+      }).then(() => themeSong.play())
+    }
+  }
+
+  const pause = () => {
+    if (songIsPlaying) {
+      new Promise((resolve, reject) => {
+        resolve(setSongIsPlaying(false))
+      }).then(() => themeSong.pause())
+    }
+  }
 
   const fetchData = async () => {
     const response = await fetch('https://thesimpsonsquoteapi.glitch.me/quotes')
@@ -72,10 +87,13 @@ const Hints = ({ setDisplayHints }) => {
           ) : null}
           <ButtonGroup
             displayAuthor={displayAuthor}
+            setDisplayAuthor={setDisplayAuthor}
             handleFetchQuote={handleFetchQuote}
             setDisplayHints={setDisplayHints}
+            songIsPlaying={songIsPlaying}
+            setSongIsPlaying={setSongIsPlaying}
             start={start}
-            setDisplayAuthor={setDisplayAuthor}
+            pause={pause}
           />
         </div>
       )}

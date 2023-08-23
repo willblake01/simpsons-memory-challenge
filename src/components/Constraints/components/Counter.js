@@ -5,14 +5,15 @@ import { LargeButton } from '../../utils'
 const Counter = () => {
   const { goal, setGoal } = useContext(Context)
 
-  const increment = () => {
-    if (goal >= 0) {
-      setGoal(goal + 1)
-    }
-  }
   const decrement = () => {
     if (goal > 0) {
       setGoal(goal - 1)
+    }
+  }
+
+  const increment = () => {
+    if (goal >= 0) {
+      setGoal(goal + 1)
     }
   }
 
