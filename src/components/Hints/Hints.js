@@ -12,10 +12,10 @@ const start = () => {
 
 const Hints = ({ setDisplayHints }) => {
   const [displayAuthor, setDisplayAuthor] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
-  const [quoteData, setQuoteData] = useLocalStorageState('quoteData', {})
+  const [isLoading, setIsLoading] = useState(false)
+  const [quoteData, setQuoteData] = useLocalStorageState('quoteData', null)
 
-  const { character, image, quote } = quoteData
+  const { character, image, quote } = { ...quoteData }
 
   const fetchData = async () => {
     const response = await fetch('https://thesimpsonsquoteapi.glitch.me/quotes')
@@ -26,15 +26,17 @@ const Hints = ({ setDisplayHints }) => {
   const fetchQuote = () => {
     setIsLoading(true)
     const setData = async () => {
-      setDisplayAuthor(false)
-      const data = await fetchData()
-      setQuoteData(data)
+      await fetchData().then(data => {
+        // Hide next author until user clicks "Show Author" button.
+        setDisplayAuthor(false)
+        setQuoteData(data)
+      })
     }
     setData().then(() => setIsLoading(false))
   }
 
   useEffect(() => {
-    fetchQuote()
+    if (!quoteData) fetchQuote()
   }, [])
 
   return (
