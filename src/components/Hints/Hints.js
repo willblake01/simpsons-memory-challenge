@@ -23,7 +23,7 @@ const Hints = ({ setDisplayHints }) => {
     return data
   }
 
-  const fetchQuote = () => {
+  const handleFetchQuote = () => {
     setIsLoading(true)
     const setData = async () => {
       await fetchData().then(data => {
@@ -36,7 +36,7 @@ const Hints = ({ setDisplayHints }) => {
   }
 
   useEffect(() => {
-    if (!quoteData) fetchQuote()
+    if (!quoteData) handleFetchQuote()
   }, [])
 
   return (
@@ -46,7 +46,7 @@ const Hints = ({ setDisplayHints }) => {
           height="80"
           width="80"
           ariaLabel="dna-loading"
-          wrapperStyle={{ height: '522px' }}
+          wrapperStyle={{ height: '620px' }}
           wrapperClass="dna-wrapper"
           ballColors={['#ffffff', '#ffffff', '#ffffff']}
           backgroundColor="orange"
@@ -72,7 +72,7 @@ const Hints = ({ setDisplayHints }) => {
           ) : null}
           <ButtonGroup
             displayAuthor={displayAuthor}
-            fetchQuote={fetchQuote}
+            handleFetchQuote={handleFetchQuote}
             setDisplayHints={setDisplayHints}
             start={start}
             setDisplayAuthor={setDisplayAuthor}

@@ -4,7 +4,7 @@ import { LargeButton } from './../../utils'
 
 const ButtonGroup = ({
   displayAuthor,
-  fetchQuote,
+  handleFetchQuote,
   setDisplayAuthor,
   setDisplayHints,
   start
@@ -20,7 +20,7 @@ const ButtonGroup = ({
     <LargeButton
       text="Next Quote"
       className="large-button"
-      onClick={fetchQuote}
+      onClick={handleFetchQuote}
     />
     <LargeButton
       text={displayAuthor ? 'Hide Author' : 'Show Author'}

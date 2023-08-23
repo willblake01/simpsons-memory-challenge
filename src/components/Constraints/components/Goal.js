@@ -1,4 +1,5 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react'
+import { useLocalStorageState } from './../../../components/utils'
 import classNames from 'classnames'
 import { Context } from '../../../context'
 import { Counter } from './../components'
@@ -8,7 +9,10 @@ const Goal = () => {
   const { clock, goal } = useContext(Context)
 
   const [revise, setRevise] = useState(false)
-  const [revisionsRemaining, setRevisionsRemaining] = useState(1)
+  const [revisionsRemaining, setRevisionsRemaining] = useLocalStorageState(
+    'revisionsRemaining',
+    1
+  )
 
   const handleRevise = () => {
     setRevise(true)
