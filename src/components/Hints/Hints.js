@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import classNames from 'classnames'
+import { useLocalStorageState } from './../../components/utils'
 import { FidgetSpinner } from 'react-loader-spinner'
 import { Image, Quote } from './components'
 import audio from '../../public/audio/The_Simpsons_Theme_Song.mp3'
@@ -12,18 +13,20 @@ const start = () => {
 const Hints = ({ setDisplayHints }) => {
   const [displayAuthor, setDisplayAuthor] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
-  const [quoteData, setQuoteData] = useState({})
+  const [quoteData, setQuoteData] = useLocalStorageState('quoteData', {})
 
   const { character, image, quote } = quoteData
 
   const fetchQuote = async () => {
     setIsLoading(true)
-    const response = await fetch('https://thesimpsonsquoteapi.glitch.me/quotes')
-    const data = await response.json()
-    setDisplayAuthor(false)
-    setQuoteData(data[0])
 
-    setIsLoading(false)
+    await fetch('https://thesimpsonsquoteapi.glitch.me/quotes').then(response =>
+      response.json().then(data => {
+        setDisplayAuthor(false)
+        setQuoteData(data[0])
+        setIsLoading(false)
+      })
+    )
   }
 
   useEffect(() => {

@@ -25,10 +25,10 @@ const List = () => {
 
   return (
     <section>
-      <ul className="list">
+      <ol className="list">
         <h2>List</h2>
         {list}
-      </ul>
+      </ol>
     </section>
   )
 }

@@ -1,15 +1,26 @@
-import React, { Fragment, useContext, useState } from 'react'
+import React, { Fragment, useContext, useEffect, useState } from 'react'
 import classNames from 'classnames'
 import { Context } from '../../../context'
 import { Counter } from './../components'
 import { SmallButton } from '../../../components/utils'
 
 const Goal = () => {
-  const { goal } = useContext(Context)
+  const { clock, goal } = useContext(Context)
 
   const [revise, setRevise] = useState(false)
+  const [revisionsRemaining, setRevisionsRemaining] = useState(1)
 
-  const toggleRevise = () => setRevise(!revise)
+  const handleRevise = () => {
+    setRevise(true)
+    setRevisionsRemaining(revisionsRemaining - 1)
+  }
+
+  useEffect(() => {
+    // Revisions only allowed in the first 5 minutes
+    if (clock <= 180000) {
+      setRevisionsRemaining(0)
+    }
+  }, [clock])
 
   return (
     <div
@@ -23,16 +34,16 @@ const Goal = () => {
           <SmallButton
             text="Done"
             className="small-button"
-            onClick={toggleRevise}
+            onClick={() => setRevise(false)}
           />
         </Fragment>
-      ) : (
+      ) : revisionsRemaining > 0 ? (
         <SmallButton
           text="Revise"
           className="small-button"
-          onClick={toggleRevise}
+          onClick={handleRevise}
         />
-      )}
+      ) : null}
     </div>
   )
 }
