@@ -1,84 +1,49 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import classNames from 'classnames'
 import { LargeButton } from './../../utils'
+import SongButtons from './SongButtons'
 
 const ButtonGroup = ({
   displayAuthor,
   handleFetchQuote,
+  pauseSong,
+  playSong,
   setDisplayAuthor,
   setDisplayHints,
-  playSong,
-  stopSong,
-  pauseSong,
   songIsPlaying,
-  songIsPaused
+  songIsPaused,
+  stopSong
 }) => {
-  const handleSongButtons = () => {
-    if (songIsPlaying) {
-      return (
-        <Fragment>
-          <LargeButton
-            text={'Pause Song'}
-            className="large-button"
-            onClick={pauseSong}
-          />
-          <LargeButton
-            text={'Stop Song'}
-            className="large-button"
-            onClick={stopSong}
-          />
-        </Fragment>
-      )
-    } else if (songIsPaused) {
-      return (
-        <Fragment>
-          <LargeButton
-            text={'Unpause Song'}
-            className="large-button"
-            onClick={playSong}
-          />
-          <LargeButton
-            text={'Stop Song'}
-            className="large-button"
-            onClick={stopSong}
-          />
-        </Fragment>
-      )
-    } else {
-      return (
-        <LargeButton
-          text={'Theme Song'}
-          className="large-button"
-          onClick={playSong}
-        />
-      )
-    }
-  }
-
   return (
     <div
       className={classNames(
+        'align-center',
         'flex-row',
         'justify-center',
-        'align-center',
         'width-max-content'
       )}
     >
       <LargeButton
-        text="Next Quote"
         className="large-button"
         onClick={handleFetchQuote}
+        text="Next Quote"
       />
       <LargeButton
-        text={displayAuthor ? 'Hide Author' : 'Show Author'}
         className="large-button"
         onClick={() => setDisplayAuthor(!displayAuthor)}
+        text={displayAuthor ? 'Hide Author' : 'Show Author'}
       />
-      {handleSongButtons()}
+      <SongButtons
+        playSong={playSong}
+        pauseSong={pauseSong}
+        songIsPlaying={songIsPlaying}
+        songIsPaused={songIsPaused}
+        stopSong={stopSong}
+      />
       <LargeButton
-        text="Hide Hints"
         className="large-button"
         onClick={() => setDisplayHints(false)}
+        text="Hide Hints"
       />
     </div>
   )

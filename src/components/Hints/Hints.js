@@ -12,7 +12,10 @@ const Hints = ({ setDisplayHints }) => {
   const [displayAuthor, setDisplayAuthor] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [quoteData, setQuoteData] = useLocalStorageState('quoteData', null)
-  const [songIsPlaying, setSongIsPlaying] = useState(false)
+  const [songIsPlaying, setSongIsPlaying] = useLocalStorageState(
+    'songIsPlaying',
+    false
+  )
   const [songIsPaused, setSongIsPaused] = useState(false)
 
   const { character, image, quote } = { ...quoteData }
@@ -94,14 +97,14 @@ const Hints = ({ setDisplayHints }) => {
           ) : null}
           <ButtonGroup
             displayAuthor={displayAuthor}
-            setDisplayAuthor={setDisplayAuthor}
             handleFetchQuote={handleFetchQuote}
-            setDisplayHints={setDisplayHints}
-            songIsPlaying={songIsPlaying}
-            songIsPaused={songIsPaused}
-            playSong={playSong}
-            stopSong={stopSong}
             pauseSong={pauseSong}
+            playSong={playSong}
+            setDisplayAuthor={setDisplayAuthor}
+            setDisplayHints={setDisplayHints}
+            songIsPaused={songIsPaused}
+            songIsPlaying={songIsPlaying}
+            stopSong={stopSong}
           />
         </div>
       )}
