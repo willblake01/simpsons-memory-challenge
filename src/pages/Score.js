@@ -3,6 +3,7 @@ import { useLocalStorageState } from './../components/utils'
 import { Context } from '../context'
 import { useNavigate } from 'react-router-dom'
 import lisa from '../public/images/lisa.png'
+import moe from '../public/images/moe.png'
 import nelson from '../public/images/nelson.png'
 import { LargeButton } from '../components/utils'
 
@@ -32,33 +33,45 @@ const Score = () => {
     navigate('/')
   }
 
+  const handleScoreView = () => {
+    if (rawList.length === 0) {
+      return (
+        <Fragment>
+          <h1>Come on now, you didn't even try.</h1>
+          <img src={nelson} alt="Nelson Muntz" />
+        </Fragment>
+      )
+    } else if (rawList.length > 0 && rawList.length < goal) {
+      return (
+        <Fragment>
+          <h1>Smh. Try to hit your goal next time...</h1>
+          <img src={moe} alt="Moe" />
+        </Fragment>
+      )
+    } else if (score > 0 && rawList.length > 0) {
+      return (
+        <Fragment>
+          <h1>{`Score: ${score}`}</h1>
+          <img src={lisa} alt="Lisa Simpson" />
+        </Fragment>
+      )
+    } else {
+      return <h1>Something went wrong</h1>
+    }
+  }
+
   useEffect(() => {
     calculateScore()
   }, [rawList])
 
   return (
     <Fragment>
-      {score > 0 ? (
-        <Fragment>
-          <h1>{`Score: ${score}`}</h1>
-          <img src={lisa} alt="Lisa Simpson" />
-          <LargeButton
-            text="Restart Challenge"
-            className="large-button"
-            onClick={restartChallenge}
-          />
-        </Fragment>
-      ) : (
-        <Fragment>
-          <h1>Come on now, you didn't even try.</h1>
-          <img src={nelson} alt="Nelson Muntz" />
-          <LargeButton
-            text="Restart Challenge"
-            className="large-button"
-            onClick={restartChallenge}
-          />
-        </Fragment>
-      )}
+      {handleScoreView()}
+      <LargeButton
+        text="Restart Challenge"
+        className="large-button"
+        onClick={restartChallenge}
+      />
     </Fragment>
   )
 }

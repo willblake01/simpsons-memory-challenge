@@ -1,5 +1,4 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react'
-import { useLocalStorageState } from './../../../components/utils'
 import classNames from 'classnames'
 import { Context } from '../../../context'
 import { Counter } from './../components'
