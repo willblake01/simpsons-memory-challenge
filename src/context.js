@@ -7,6 +7,10 @@ export const ContextProvider = ({ children }) => {
   const [clock, setClock] = useLocalStorageState('clock', 0)
   const [goal, setGoal] = useLocalStorageState('goal', 0)
   const [rawList, setRawList] = useLocalStorageState('rawList', [])
+  const [revisionsRemaining, setRevisionsRemaining] = useLocalStorageState(
+    'revisionsRemaining',
+    1
+  )
 
   const context = {
     clock,
@@ -14,7 +18,9 @@ export const ContextProvider = ({ children }) => {
     goal,
     setGoal,
     rawList,
-    setRawList
+    setRawList,
+    revisionsRemaining,
+    setRevisionsRemaining
   }
 
   return <Context.Provider value={context}>{children}</Context.Provider>

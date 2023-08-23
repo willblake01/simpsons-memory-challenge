@@ -6,13 +6,11 @@ import { Counter } from './../components'
 import { SmallButton } from '../../../components/utils'
 
 const Goal = () => {
-  const { clock, goal } = useContext(Context)
+  const { clock, goal, revisionsRemaining, setRevisionsRemaining } = useContext(
+    Context
+  )
 
   const [revise, setRevise] = useState(false)
-  const [revisionsRemaining, setRevisionsRemaining] = useLocalStorageState(
-    'revisionsRemaining',
-    1
-  )
 
   const handleRevise = () => {
     setRevise(true)

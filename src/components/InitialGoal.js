@@ -6,7 +6,9 @@ import { LargeButton, UserInput } from './utils'
 const InitialGoal = () => {
   const navigate = useNavigate()
 
-  const { setClock, setGoal, setRawList } = useContext(Context)
+  const { setClock, setGoal, setRawList, setRevisionsRemaining } = useContext(
+    Context
+  )
 
   const handleGoalInput = e => {
     const { value } = e.target
@@ -14,9 +16,11 @@ const InitialGoal = () => {
   }
 
   const startChallenge = () => {
-    setRawList([])
-    setClock(480000)
-    navigate('/challenge')
+    Promise.all([
+      setRawList([]),
+      setRevisionsRemaining(1),
+      setClock(480000)
+    ]).then(() => navigate('/challenge'))
   }
 
   return (
