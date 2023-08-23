@@ -13,22 +13,29 @@ const Hints = ({ setDisplayHints }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [quoteData, setQuoteData] = useLocalStorageState('quoteData', null)
   const [songIsPlaying, setSongIsPlaying] = useState(false)
+  const [songIsPaused, setSongIsPaused] = useState(false)
 
   const { character, image, quote } = { ...quoteData }
 
-  const start = () => {
+  const playSong = () => {
     if (!songIsPlaying) {
-      new Promise((resolve, reject) => {
-        resolve(setSongIsPlaying(true))
-      }).then(() => themeSong.play())
+      Promise.all([setSongIsPlaying(true), setSongIsPaused(false)]).then(() =>
+        themeSong.play()
+      )
     }
   }
 
-  const pause = () => {
+  const stopSong = () => {
+    Promise.all([setSongIsPlaying(false), setSongIsPaused(false)]).then(() =>
+      themeSong.load()
+    )
+  }
+
+  const pauseSong = () => {
     if (songIsPlaying) {
-      new Promise((resolve, reject) => {
-        resolve(setSongIsPlaying(false))
-      }).then(() => themeSong.pause())
+      Promise.all([setSongIsPlaying(false), setSongIsPaused(true)]).then(() =>
+        themeSong.pause()
+      )
     }
   }
 
@@ -91,9 +98,10 @@ const Hints = ({ setDisplayHints }) => {
             handleFetchQuote={handleFetchQuote}
             setDisplayHints={setDisplayHints}
             songIsPlaying={songIsPlaying}
-            setSongIsPlaying={setSongIsPlaying}
-            start={start}
-            pause={pause}
+            songIsPaused={songIsPaused}
+            playSong={playSong}
+            stopSong={stopSong}
+            pauseSong={pauseSong}
           />
         </div>
       )}
