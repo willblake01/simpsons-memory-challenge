@@ -4,12 +4,12 @@ import { useLocalStorageState } from './components/utils'
 export const Context = createContext()
 
 export const ContextProvider = ({ children }) => {
-  const [clock, setClock] = useLocalStorageState('clock', 0)
-  const [goal, setGoal] = useLocalStorageState('goal', 0)
+  const [clock, setClock] = useLocalStorageState('clock', null)
+  const [goal, setGoal] = useLocalStorageState('goal', null)
   const [rawList, setRawList] = useLocalStorageState('rawList', [])
   const [revisionsRemaining, setRevisionsRemaining] = useLocalStorageState(
     'revisionsRemaining',
-    1
+    null
   )
 
   const context = {
