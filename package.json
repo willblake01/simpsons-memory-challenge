@@ -6,19 +6,19 @@
     "classnames": "^2.3.2",
     "husky": "^0.14.3",
     "lint-staged": "^6.1.0",
-    "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.15.0",
-    "react-scripts": "1.1.1",
+    "react-scripts": "^5.0.1",
+    "sass": "^1.66.1",
     "typescript": "^5.1.6",
     "vanilla-tilt": "^1.7.0",
     "yarn-run-all": "^3.1.1"
   },
   "scripts": {
-    "build-css": "node-sass src/ -o src/",
-    "watch-css": "yarn build-css && node-sass src/ -o src/ --watch --recursive",
+    "build-css": "sass src/",
+    "watch-css": "yarn build-css && sass src/ --watch --recursive",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
@@ -39,5 +39,11 @@
   "prettier": {
     "semi": false,
     "singleQuote": true
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

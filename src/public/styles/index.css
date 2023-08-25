@@ -1,40 +1,51 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 body {
-  background-image: url("https://amymhaddad.s3.amazonaws.com/morocco-blue.png");
-  font-family: sans-serif; }
+  background-image: url('https://amymhaddad.s3.amazonaws.com/morocco-blue.png');
+  font-family: sans-serif;
+}
 
 @font-face {
   font-family: 'Simpsons';
-  src: local("Simpsons"), url(../fonts/Simpsons/akbar.ttf) format("truetype"); }
+  src: local('Simpsons'), url(../fonts/Simpsons/akbar.ttf) format('truetype');
+}
 
 h1 {
-  margin: 0; }
+  margin: 0;
+}
 
 input {
   margin: 10px;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
-  border-radius: .3rem;
-  border: 1px solid transparent; }
+  border-radius: 0.3rem;
+  border: 1px solid transparent;
+}
 
 button {
-  border: 1px solid transparent; }
+  border: 1px solid transparent;
+}
 
 li {
-  margin: 0 0 6px 16px; }
+  margin: 0 0 6px 16px;
+}
 
 /* Removes arrows from number input */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: 0; }
+  margin: 0;
+}
 
 /* Firefox */
-input[type=number] {
-  -moz-appearance: textfield; }
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.33fbc97f.css",
+    "main.js": "/static/js/main.55007cec.js",
+    "static/media/The_Simpsons_Theme_Song.mp3": "/static/media/The_Simpsons_Theme_Song.5e6dc947ddd68e1da16b.mp3",
+    "static/media/lisa.png": "/static/media/lisa.a414a02c513d7e85e427.png",
+    "static/media/nelson.png": "/static/media/nelson.96946780b0488e5ce0ad.png",
+    "static/media/moe.png": "/static/media/moe.61c10c4f775e12ec5f0b.png",
+    "static/media/akbar.ttf": "/static/media/akbar.dbe828aa599ba3fc2a03.ttf",
+    "index.html": "/index.html",
+    "main.33fbc97f.css.map": "/static/css/main.33fbc97f.css.map",
+    "main.55007cec.js.map": "/static/js/main.55007cec.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.33fbc97f.css",
+    "static/js/main.55007cec.js"
+  ]
+}
