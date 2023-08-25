@@ -1,12 +1,18 @@
-import React, { Fragment, useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../../context'
 import { useLocalStorageState } from './../../components/utils'
 import classNames from 'classnames'
 import { FidgetSpinner } from 'react-loader-spinner'
-import { Image, Quote } from './components'
+import { Quote } from './components'
 import ButtonGroup from './components/ButtonGroup'
 
-const Hints = ({ pauseSong, playSong, setDisplayHints, stopSong }) => {
+const Hints = ({
+  displayHints,
+  pauseSong,
+  playSong,
+  setDisplayHints,
+  stopSong
+}) => {
   const { songIsPaused, songIsPlaying } = useContext(Context)
 
   const [displayAuthor, setDisplayAuthor] = useState(false)
@@ -57,18 +63,16 @@ const Hints = ({ pauseSong, playSong, setDisplayHints, stopSong }) => {
             'align-center'
           )}
         >
-          {quoteData ? (
-            <Fragment>
-              <Image image={image} />
-              <Quote
-                character={character}
-                displayAuthor={displayAuthor}
-                quote={quote}
-              />
-            </Fragment>
-          ) : null}
+          <Quote
+            character={character}
+            displayAuthor={displayAuthor}
+            image={image}
+            quote={quote}
+            quoteData={quoteData}
+          />
           <ButtonGroup
             displayAuthor={displayAuthor}
+            displayHints={displayHints}
             handleFetchQuote={handleFetchQuote}
             pauseSong={pauseSong}
             playSong={playSong}

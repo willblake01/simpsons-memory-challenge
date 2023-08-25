@@ -36,7 +36,8 @@
   text-decoration: none;
   vertical-align: middle;
   background-color: white;
-  color: orange; }
+  color: orange;
+  z-index: 1; }
 
 .small-button {
   margin: 0 0 0 4px;
@@ -111,4 +112,8 @@
   position: absolute;
   align-self: start;
   width: 100%;
+  z-index: 1; }
+
+.hints {
+  position: relative;
   z-index: 2; }

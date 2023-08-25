@@ -66,6 +66,7 @@ const Challenge = () => {
       <Constraints />
       {displayHints ? (
         <Hints
+          displayHints={displayHints}
           pauseSong={pauseSong}
           playSong={playSong}
           stopSong={stopSong}
