@@ -23,6 +23,10 @@ const Challenge = () => {
 
   const [displayHints, setDisplayHints] = useState(true)
 
+  const endChallenge = async () => {
+    Promise.all([stopSong(), setClock(0)]).then(() => navigate('/score'))
+  }
+
   const playSong = () => {
     if (!songIsPlaying) {
       Promise.all([setSongIsPlaying(true), setSongIsPaused(false)]).then(() =>
@@ -45,8 +49,10 @@ const Challenge = () => {
     )
   }
 
-  const endChallenge = async () => {
-    Promise.all([stopSong(), setClock(0)]).then(() => navigate('/score'))
+  themeSong.onended = function() {
+    new Promise(resolve => {
+      resolve(setSongIsPlaying(false))
+    }).then(() => stopSong())
   }
 
   useEffect(() => {
