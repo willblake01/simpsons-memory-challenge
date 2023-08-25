@@ -52,7 +52,6 @@ const Hints = ({ pauseSong, playSong, setDisplayHints, stopSong }) => {
       ) : (
         <div
           className={classNames(
-            'hints',
             'flex-column',
             'justify-center',
             'align-center'

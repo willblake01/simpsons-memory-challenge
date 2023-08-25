@@ -1,10 +1,12 @@
-import React, { Fragment, useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import classNames from 'classnames'
 import '../public/styles/app.css'
 import { Context } from '../context'
 import { useNavigate } from 'react-router-dom'
 import { Constraints, Hints, Lists } from '../components'
 import { LargeButton } from '../components/utils'
 import audio from '../public/audio/The_Simpsons_Theme_Song.mp3'
+import { AddListItem } from '../components/Lists/components'
 
 const themeSong = new Audio(audio)
 
@@ -54,7 +56,13 @@ const Challenge = () => {
   })
 
   return (
-    <Fragment>
+    <div
+      className={classNames(
+        'challenge-container',
+        'flex-column',
+        'align-center'
+      )}
+    >
       <Constraints />
       {displayHints ? (
         <Hints
@@ -71,12 +79,13 @@ const Challenge = () => {
         />
       )}
       <Lists />
+      <AddListItem />
       <LargeButton
         text="Finished"
         className="large-button"
         onClick={endChallenge}
       />
-    </Fragment>
+    </div>
   )
 }
 

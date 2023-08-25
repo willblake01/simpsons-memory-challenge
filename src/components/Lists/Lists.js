@@ -1,15 +1,12 @@
 import React, { Fragment } from 'react'
-import { AddListItem, FilteredList, List } from './components'
+import { FilteredList, List } from './components'
 
 const Lists = () => {
   return (
-    <Fragment>
-      <div className="flex-row">
-        <List />
-        <FilteredList />
-      </div>
-      <AddListItem />
-    </Fragment>
+    <div className="flex-row">
+      <List />
+      <FilteredList />
+    </div>
   )
 }
 

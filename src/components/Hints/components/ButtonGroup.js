@@ -10,8 +10,8 @@ const ButtonGroup = ({
   playSong,
   setDisplayAuthor,
   setDisplayHints,
-  songIsPlaying,
   songIsPaused,
+  songIsPlaying,
   stopSong
 }) => {
   return (
