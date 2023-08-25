@@ -10,7 +10,7 @@ import { Challenge, Landing, Score } from './pages'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename="simpsons-memory-challenge">
     <ContextProvider>
       <div
         className={classNames(
