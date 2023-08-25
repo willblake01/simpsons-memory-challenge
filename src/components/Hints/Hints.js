@@ -1,46 +1,19 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useContext, useEffect, useState } from 'react'
+import { Context } from '../../context'
 import { useLocalStorageState } from './../../components/utils'
 import classNames from 'classnames'
-import audio from '../../public/audio/The_Simpsons_Theme_Song.mp3'
 import { FidgetSpinner } from 'react-loader-spinner'
 import { Image, Quote } from './components'
 import ButtonGroup from './components/ButtonGroup'
 
-const themeSong = new Audio(audio)
+const Hints = ({ pauseSong, playSong, setDisplayHints, stopSong }) => {
+  const { songIsPaused, songIsPlaying } = useContext(Context)
 
-const Hints = ({ setDisplayHints }) => {
   const [displayAuthor, setDisplayAuthor] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [quoteData, setQuoteData] = useLocalStorageState('quoteData', null)
-  const [songIsPlaying, setSongIsPlaying] = useLocalStorageState(
-    'songIsPlaying',
-    false
-  )
-  const [songIsPaused, setSongIsPaused] = useState(false)
 
   const { character, image, quote } = { ...quoteData }
-
-  const playSong = () => {
-    if (!songIsPlaying) {
-      Promise.all([setSongIsPlaying(true), setSongIsPaused(false)]).then(() =>
-        themeSong.play()
-      )
-    }
-  }
-
-  const stopSong = () => {
-    Promise.all([setSongIsPlaying(false), setSongIsPaused(false)]).then(() =>
-      themeSong.load()
-    )
-  }
-
-  const pauseSong = () => {
-    if (songIsPlaying) {
-      Promise.all([setSongIsPlaying(false), setSongIsPaused(true)]).then(() =>
-        themeSong.pause()
-      )
-    }
-  }
 
   const fetchData = async () => {
     const response = await fetch('https://thesimpsonsquoteapi.glitch.me/quotes')

@@ -11,6 +11,8 @@ export const ContextProvider = ({ children }) => {
     'revisionsRemaining',
     null
   )
+  const [songIsPlaying, setSongIsPlaying] = useLocalStorageState(false)
+  const [songIsPaused, setSongIsPaused] = useLocalStorageState(false)
 
   const context = {
     clock,
@@ -20,7 +22,11 @@ export const ContextProvider = ({ children }) => {
     rawList,
     setRawList,
     revisionsRemaining,
-    setRevisionsRemaining
+    setRevisionsRemaining,
+    songIsPlaying,
+    setSongIsPlaying,
+    songIsPaused,
+    setSongIsPaused
   }
 
   return <Context.Provider value={context}>{children}</Context.Provider>
