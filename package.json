@@ -1,7 +1,7 @@
 {
   "name": "simpsons-memory-challenge",
   "version": "0.1.0",
-  "homepage": "https://willblake01.github.io/simpsons-memory-challenge",
+  "homepage": "https://willblake01.github.io/simpsons-memory-challenge/",
   "private": false,
   "dependencies": {
     "classnames": "^2.3.2",
