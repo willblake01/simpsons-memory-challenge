@@ -11,8 +11,14 @@ export const ContextProvider = ({ children }) => {
     'revisionsRemaining',
     null
   )
-  const [songIsPlaying, setSongIsPlaying] = useLocalStorageState(false)
-  const [songIsPaused, setSongIsPaused] = useLocalStorageState(false)
+  const [songIsPlaying, setSongIsPlaying] = useLocalStorageState(
+    'songIsPlaying',
+    false
+  )
+  const [songIsPaused, setSongIsPaused] = useLocalStorageState(
+    'songIsPaused',
+    false
+  )
 
   const context = {
     clock,
