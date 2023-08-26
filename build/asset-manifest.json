@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.ae8b1773.css",
-    "main.js": "/static/js/main.2063f06b.js",
-    "static/media/The_Simpsons_Theme_Song.mp3": "/static/media/The_Simpsons_Theme_Song.5e6dc947ddd68e1da16b.mp3",
-    "static/media/lisa.png": "/static/media/lisa.a414a02c513d7e85e427.png",
-    "static/media/nelson.png": "/static/media/nelson.96946780b0488e5ce0ad.png",
-    "static/media/moe.png": "/static/media/moe.61c10c4f775e12ec5f0b.png",
-    "static/media/akbar.ttf": "/static/media/akbar.dbe828aa599ba3fc2a03.ttf",
-    "index.html": "/index.html",
-    "main.ae8b1773.css.map": "/static/css/main.ae8b1773.css.map",
-    "main.2063f06b.js.map": "/static/js/main.2063f06b.js.map"
+    "main.css": "/simpsons-memory-challenge/static/css/main.4f481377.css",
+    "main.js": "/simpsons-memory-challenge/static/js/main.4f3d74a0.js",
+    "static/media/The_Simpsons_Theme_Song.mp3": "/simpsons-memory-challenge/static/media/The_Simpsons_Theme_Song.5e6dc947ddd68e1da16b.mp3",
+    "static/media/lisa.png": "/simpsons-memory-challenge/static/media/lisa.a414a02c513d7e85e427.png",
+    "static/media/nelson.png": "/simpsons-memory-challenge/static/media/nelson.96946780b0488e5ce0ad.png",
+    "static/media/moe.png": "/simpsons-memory-challenge/static/media/moe.61c10c4f775e12ec5f0b.png",
+    "static/media/akbar.ttf": "/simpsons-memory-challenge/static/media/akbar.dbe828aa599ba3fc2a03.ttf",
+    "index.html": "/simpsons-memory-challenge/index.html",
+    "main.4f481377.css.map": "/simpsons-memory-challenge/static/css/main.4f481377.css.map",
+    "main.4f3d74a0.js.map": "/simpsons-memory-challenge/static/js/main.4f3d74a0.js.map"
   },
   "entrypoints": [
-    "static/css/main.ae8b1773.css",
-    "static/js/main.2063f06b.js"
+    "static/css/main.4f481377.css",
+    "static/js/main.4f3d74a0.js"
   ]
 }

@@ -28,9 +28,9 @@ const InitialGoal = () => {
       <h1>
         How many characters can you name in 8 minutes? You can revise after the
         challenge starts but choose carefully, you can only do this once in the
-        first 5 minutes! To score points for the challenge you must at least
-        reach your goal. You will score 10 points for every character in your
-        goal and 1 point for every additional character you name.
+        first 5 minutes! To score points for the challenge you must reach your
+        goal. You will score 10 base points for every character in your goal and
+        1 bonus point for each additional character.
       </h1>
       <div className="flex-row">
         <UserInput

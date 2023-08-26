@@ -1,9 +1,11 @@
 {
   "name": "simpsons-memory-challenge",
   "version": "0.1.0",
+  "homepage": "https://willblake01.github.io/simpsons-memory-challenge",
   "private": false,
   "dependencies": {
     "classnames": "^2.3.2",
+    "gh-pages": "^6.0.0",
     "husky": "^0.14.3",
     "lint-staged": "^6.1.0",
     "react": "^18.2.0",
@@ -17,6 +19,8 @@
     "yarn-run-all": "^3.1.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build-css": "sass src/",
     "watch-css": "yarn build-css && sass src/ --watch",
     "start-js": "react-scripts start",
