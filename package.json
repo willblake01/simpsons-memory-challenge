@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build-css": "sass src/",
-    "watch-css": "yarn build-css && sass src/ --watch --recursive",
+    "watch-css": "yarn build-css && sass src/ --watch",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",

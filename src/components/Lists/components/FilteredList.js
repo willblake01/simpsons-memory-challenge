@@ -21,9 +21,7 @@ const FilteredList = () => {
       .filter(character =>
         theSimpsons.some(familyMember => familyMember.includes(character))
       )
-      .map((filteredCharacter, index) => (
-        <li key={`${filteredCharacter}-${index}`}>{filteredCharacter}</li>
-      ))
+      .map(filtereedCharacter => filtereedCharacter)
     setFilteredList(nuclearFamily)
   }, [rawList])
 
@@ -31,7 +29,9 @@ const FilteredList = () => {
     <section>
       <ul className="list">
         <h2>Filtered List</h2>
-        {filteredList}
+        {filteredList.map((filteredCharacter, index) => (
+          <li key={`${filteredCharacter}-${index}`}>{filteredCharacter}</li>
+        ))}
       </ul>
     </section>
   )

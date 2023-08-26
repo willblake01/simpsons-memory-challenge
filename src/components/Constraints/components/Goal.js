@@ -12,8 +12,11 @@ const Goal = () => {
   const [revise, setRevise] = useState(false)
 
   const handleRevise = () => {
-    setRevise(true)
-    setRevisionsRemaining(revisionsRemaining - 1)
+    Promise.resolve(setRevise(true)).then(() => {
+      if (revisionsRemaining > 0) {
+        setRevisionsRemaining(revisionsRemaining - 1)
+      }
+    })
   }
 
   useEffect(() => {

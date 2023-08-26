@@ -28,15 +28,9 @@ const Hints = ({
   }
 
   const handleFetchQuote = () => {
-    setIsLoading(true)
-    const setData = async () => {
-      await fetchData().then(data => {
-        // Hide next author until user clicks "Show Author" button.
-        setDisplayAuthor(false)
-        setQuoteData(data)
-      })
-    }
-    setData().then(() => setIsLoading(false))
+    Promise.all([setIsLoading(true), setDisplayAuthor(false), fetchData()])
+      .then(data => setQuoteData(data[2]))
+      .then(() => setIsLoading(false))
   }
 
   useEffect(() => {

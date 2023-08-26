@@ -29,7 +29,7 @@ const Challenge = () => {
 
   const playSong = () => {
     if (!songIsPlaying) {
-      Promise.all([setSongIsPlaying(true), setSongIsPaused(false)]).then(() =>
+      Promise.all([setSongIsPaused(false), setSongIsPlaying(true)]).then(() =>
         themeSong.play()
       )
     }
@@ -37,22 +37,20 @@ const Challenge = () => {
 
   const pauseSong = () => {
     if (songIsPlaying) {
-      Promise.all([setSongIsPlaying(false), setSongIsPaused(true)]).then(() =>
+      Promise.all([setSongIsPaused(true), setSongIsPlaying(false)]).then(() =>
         themeSong.pause()
       )
     }
   }
 
   const stopSong = () => {
-    Promise.all([setSongIsPlaying(false), setSongIsPaused(false)]).then(() =>
+    Promise.all([setSongIsPaused(false), setSongIsPlaying(false)]).then(() =>
       themeSong.load()
     )
   }
 
   themeSong.onended = function() {
-    new Promise(resolve => {
-      resolve(setSongIsPlaying(false))
-    }).then(() => stopSong())
+    Promise.resolve(setSongIsPlaying(false)).then(() => stopSong())
   }
 
   useEffect(() => {

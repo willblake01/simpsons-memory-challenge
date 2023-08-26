@@ -27,8 +27,9 @@ const AddListItem = () => {
     if (newItem) {
       e.preventDefault()
       addListItem(newItem)
-      setNewItem('')
-      document.getElementById('add-item-id').value = null
+      Promise.resolve(setNewItem('')).then(
+        () => (document.getElementById('add-item-id').value = null)
+      )
     }
   }
 

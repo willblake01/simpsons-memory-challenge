@@ -3,23 +3,18 @@ import { Context } from './../../../context'
 import { SmallButton } from './../../../components/utils'
 
 const List = () => {
-  const { rawList } = useContext(Context)
+  const { rawList, setRawList } = useContext(Context)
 
   const [list, setList] = useState([])
 
   const deleteListItem = item => {
     let rawListCopy = [...rawList]
     const rawListFiltered = rawListCopy.filter(listItem => listItem !== item)
-    setList(rawListFiltered)
+    setRawList(rawListFiltered)
   }
 
   useEffect(() => {
-    const allCharacters = rawList.map((character, index) => (
-      <li key={`${character}-${index}`}>
-        {character}
-        <SmallButton text="Delete" onClick={() => deleteListItem(character)} />
-      </li>
-    ))
+    const allCharacters = [...rawList]
     setList(allCharacters)
   }, [rawList])
 
@@ -27,7 +22,15 @@ const List = () => {
     <section>
       <ol className="list">
         <h2>List</h2>
-        {list}
+        {list.map((character, index) => (
+          <li key={`${character}-${index}`}>
+            {character}
+            <SmallButton
+              text="Delete"
+              onClick={() => deleteListItem(character)}
+            />
+          </li>
+        ))}
       </ol>
     </section>
   )
