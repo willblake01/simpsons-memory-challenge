@@ -12,8 +12,10 @@ const FilteredList = () => {
     'Bart Simpson',
     'Lisa Simpson',
     'Maggie Simpson',
+    'Abraham Simpson',
     "Santa's Little Helper",
-    'Snowball II'
+    'Snowball II',
+    'Snowball V'
   ]
 
   useEffect(() => {
