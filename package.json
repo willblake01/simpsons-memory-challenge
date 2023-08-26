@@ -20,7 +20,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -b main -d build",
     "build-css": "sass src/",
     "watch-css": "yarn build-css && sass src/ --watch",
     "start-js": "react-scripts start",
