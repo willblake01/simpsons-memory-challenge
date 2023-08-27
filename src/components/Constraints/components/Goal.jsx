@@ -1,8 +1,8 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react'
 import classNames from 'classnames'
 import { Context } from '../../../context'
-import { Counter } from './../components'
-import { SmallButton } from '../../../components/utils'
+import { Counter } from '.'
+import { SmallButton } from '../../utils'
 
 const Goal = () => {
   const { clock, goal, revisionsRemaining, setRevisionsRemaining } = useContext(

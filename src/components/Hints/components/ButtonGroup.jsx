@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import classNames from 'classnames'
-import { LargeButton } from './../../utils'
+import { LargeButton } from '../../utils'
 import SongButtons from './SongButtons'
 
 const ButtonGroup = ({

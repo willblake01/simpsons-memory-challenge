@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useEffect } from 'react'
-import { useLocalStorageState } from './../components/utils'
+import { useLocalStorageState } from '../components/utils'
 import { Context } from '../context'
 import { useNavigate } from 'react-router-dom'
 import lisa from '../public/images/lisa.png'

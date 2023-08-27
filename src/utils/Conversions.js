@@ -1,4 +1,4 @@
-const msToTime = s => {
+export const msToTime = s => {
   // Pad to 2 or 3 digits, default is 2
   function pad(n, z) {
     z = z || 2
@@ -14,5 +14,3 @@ const msToTime = s => {
 
   return mins + ':' + pad(secs)
 }
-
-module.exports = { msToTime }

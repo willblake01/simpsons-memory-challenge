@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../../context'
-import { useLocalStorageState } from './../../components/utils'
+import { useLocalStorageState } from '../utils'
 import classNames from 'classnames'
 import { FidgetSpinner } from 'react-loader-spinner'
 import { Quote } from './components'

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import classNames from 'classnames'
 import { Context } from '../../../context'
-import { msToTime } from '../../../utils/Conversions'
+import { msToTime } from '../../../utils/conversions'
 
 const Clock = () => {
   const { clock, setClock } = useContext(Context)

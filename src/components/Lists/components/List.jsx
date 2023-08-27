@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Context } from './../../../context'
-import { SmallButton } from './../../../components/utils'
+import { Context } from '../../../context'
+import { SmallButton } from '../../utils'
 
 const List = () => {
   const { rawList, setRawList } = useContext(Context)
