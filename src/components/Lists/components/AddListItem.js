@@ -7,19 +7,116 @@ const AddListItem = () => {
 
   const [newItem, setNewItem] = useState('')
 
+  const allCharacters = [
+    'Homer Simpson',
+    'Marge Simpson',
+    'Bart Simpson',
+    'Lisa Simpson',
+    'Maggie Simpson',
+    'Abraham Simpson',
+    "Santa's Little Helper",
+    'Snowball II',
+    'Snowball V',
+    'Apu Nahasapeemapetilon',
+    'Barney Gumble',
+    'Bleeding Gums Murphy',
+    'Chief Clancy Wiggum',
+    'Dewey Largo',
+    'Eddie',
+    'Edna Krabappel',
+    'Itchy & Scratchy',
+    'Janey Powell',
+    'Jasper Beardly	',
+    'Jimbo Jones',
+    'Kearney Zzyzwicz',
+    'Kent Brockman',
+    'Krusty the Clown',
+    'Lenny Leonard',
+    'Lionel Hutz',
+    'Luann Van Houten',
+    'Martin Prince',
+    'Maude Flanders',
+    'Milhouse Van Houten',
+    'Miss Hoover',
+    'Moe Szyslak',
+    'Ned Flanders',
+    'Nelson Muntz',
+    'Otto Mann',
+    'Patty Bouvier',
+    'Principal Skinner',
+    'Professor Frink',
+    'Rainier Wolfcastle',
+    'Ralph Wiggum',
+    'Rod Flanders',
+    'Seymour Skinner',
+    'Sherri & Terri',
+    'Sideshow Bob',
+    'Sideshow Mel',
+    'Snake Jailbird',
+    'Troy McClure',
+    'Waylon Smithers',
+    'Wendell Borton',
+    'Abe Simpson',
+    'Agnes Skinner',
+    'Allison Taylor',
+    'Aristotle Amadopolis',
+    'Artie Ziff',
+    'Bernice Hibbert',
+    'Birch Barlow',
+    'Brandine Spuckler',
+    'Reverend Timothy Lovejoy',
+    'C. Montgomery Burns',
+    'Carl Carlson',
+    'Cletus Spuckler',
+    'Comic Book Guy',
+    'Cookie Kwan',
+    'Disco Stu',
+    'Dr. Hibbert',
+    'Dr. Nick Riviera',
+    'Duffman',
+    'Eleanor Abernathy',
+    'Elizabeth Hoover',
+    'Fat Tony',
+    'Frank Grimes',
+    'Gil Gunderson',
+    'Groundskeeper Willie',
+    'Hans Moleman',
+    'Helen Lovejoy',
+    'Herman Hermann',
+    'Hollis Hurlbut',
+    'Jacqueline Bouvier',
+    'Jebediah Springfield',
+    'Judge Roy Snyder',
+    'Kang & Kodos',
+    'Kirk Van Houten',
+    'Lionel Hutz',
+    'Lunchlady Doris'
+  ]
+
   const handleInput = e => {
     const { value } = e.target
     setNewItem(value)
   }
 
   const addListItem = character => {
-    const rawListCopy = [...rawList]
+    const alreadyAdded = rawList.includes(character)
+    const isSimpsonsCharacter = allCharacters.some(familyMember =>
+      familyMember.includes(character)
+    )
 
-    if (rawListCopy.includes(character)) {
+    if (alreadyAdded) {
       alert(`${character} already added, Please add a different character.`)
+    } else if (!isSimpsonsCharacter) {
+      alert(
+        `${character} is not a Simpsons character, Please add a Simpsons character.`
+      )
     } else {
-      const updatedRawList = rawListCopy.concat(character)
-      setRawList(updatedRawList)
+      const onlyCharacters = rawList
+        .filter(character =>
+          allCharacters.some(familyMember => familyMember.includes(character))
+        )
+        .map(filteredCharacter => filteredCharacter)
+      setRawList(onlyCharacters.concat(character))
     }
   }
 
