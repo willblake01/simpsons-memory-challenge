@@ -107,13 +107,13 @@ const AddListItem = () => {
 
     if (alreadyAdded) {
       sweetAlert(
-        'Validation Error',
-        `${character} already added, Please add a different character.`
+        'Duplicate Error',
+        `${character} already added, please add a different character.`
       )
     } else if (!isSimpsonsCharacter) {
       sweetAlert(
         'Validation Error',
-        `${character} is not a Simpsons character, Please add a Simpsons character.`
+        `${character} is not a Simpsons character, please add a Simpsons character.`
       )
     } else {
       const onlyCharacters = rawList
