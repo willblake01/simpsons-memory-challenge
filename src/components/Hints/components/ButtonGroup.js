@@ -11,8 +11,6 @@ const ButtonGroup = ({
   playSong,
   setDisplayAuthor,
   setDisplayHints,
-  songIsPaused,
-  songIsPlaying,
   stopSong
 }) => {
   const handleDisplayButtons = () => {
@@ -32,8 +30,6 @@ const ButtonGroup = ({
           <SongButtons
             playSong={playSong}
             pauseSong={pauseSong}
-            songIsPlaying={songIsPlaying}
-            songIsPaused={songIsPaused}
             stopSong={stopSong}
           />
           <LargeButton

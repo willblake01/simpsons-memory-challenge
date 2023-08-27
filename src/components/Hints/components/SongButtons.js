@@ -1,13 +1,10 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext } from 'react'
+import { Context } from '../../../context'
 import { LargeButton } from './../../utils'
 
-const SongButtons = ({
-  playSong,
-  pauseSong,
-  songIsPlaying,
-  songIsPaused,
-  stopSong
-}) => {
+const SongButtons = ({ playSong, pauseSong, stopSong }) => {
+  const { songIsPaused, songIsPlaying } = useContext(Context)
+
   const handleSongButtons = () => {
     if (songIsPlaying) {
       return (
