@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Context } from './../../../context'
 import { LargeButton, UserInput } from './../../../components/utils'
+import { sweetAlert } from './../../utils/Alert'
 
 const AddListItem = () => {
   const { rawList, setRawList } = useContext(Context)
@@ -105,9 +106,13 @@ const AddListItem = () => {
     )
 
     if (alreadyAdded) {
-      alert(`${character} already added, Please add a different character.`)
+      sweetAlert(
+        'Validation Error',
+        `${character} already added, Please add a different character.`
+      )
     } else if (!isSimpsonsCharacter) {
-      alert(
+      sweetAlert(
+        'Validation Error',
         `${character} is not a Simpsons character, Please add a Simpsons character.`
       )
     } else {
