@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 
 function useLocalStorageState(
-  key,
-  defaultValue,
+  key: string,
+  defaultValue: any,
   { serialize = JSON.stringify, deserialize = JSON.parse } = {}
 ) {
   const [state, setState] = useState(() => {

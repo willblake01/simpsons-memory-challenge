@@ -1,1 +1,1 @@
-export { default as Constraints } from './Constraints'
+export { default as Constraints } from './Constraints.tsx'

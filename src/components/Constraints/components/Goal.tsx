@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import classNames from 'classnames'
 import { Context } from '../../../context'
 import { Counter } from '.'
@@ -33,20 +33,12 @@ const Goal = () => {
       <h1>Goal</h1>
       <h1>{goal}</h1>
       {revise ? (
-        <Fragment>
+        <>
           <Counter />
-          <SmallButton
-            text="Done"
-            className="small-button"
-            onClick={() => setRevise(false)}
-          />
-        </Fragment>
+          <SmallButton text="Done" onClick={() => setRevise(false)} />
+        </>
       ) : revisionsRemaining > 0 ? (
-        <SmallButton
-          text="Revise"
-          className="small-button"
-          onClick={handleRevise}
-        />
+        <SmallButton text="Revise" onClick={handleRevise} />
       ) : null}
     </div>
   )

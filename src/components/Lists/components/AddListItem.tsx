@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
-import { Context } from './../../../context'
-import { LargeButton, UserInput } from './../../../components/utils'
-import { sweetAlert } from './../../utils/Alert'
+import { Context } from '../../../context'
+import { LargeButton, UserInput } from '../../utils'
+import { sweetAlert } from '../../utils/Alert'
 
 const AddListItem = () => {
   const { rawList, setRawList } = useContext(Context)
@@ -94,12 +94,12 @@ const AddListItem = () => {
     'Lunchlady Doris'
   ]
 
-  const handleInput = e => {
-    const { value } = e.target
+  const handleInput = (e: Event) => {
+    const { value } = e.target as HTMLButtonElement
     setNewItem(value)
   }
 
-  const addListItem = character => {
+  const addListItem = (character: string) => {
     const alreadyAdded = rawList.includes(character)
     const isSimpsonsCharacter = allCharacters.some(familyMember =>
       familyMember.includes(character)
@@ -117,20 +117,25 @@ const AddListItem = () => {
       )
     } else {
       const onlyCharacters = rawList
-        .filter(character =>
+        .filter((character: string) =>
           allCharacters.some(familyMember => familyMember.includes(character))
         )
-        .map(filteredCharacter => filteredCharacter)
+        .map((filteredCharacter: string) => filteredCharacter)
       setRawList(onlyCharacters.concat(character))
     }
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: Event) => {
     if (newItem) {
-      e.preventDefault()
-      addListItem(newItem)
-      Promise.resolve(setNewItem('')).then(
-        () => (document.getElementById('add-item-id').value = null)
+      Promise.all([
+        e.preventDefault(),
+        addListItem(newItem),
+        setNewItem('')
+      ]).then(
+        () =>
+          ((document.getElementById(
+            'add-item-id'
+          ) as HTMLInputElement).value = null)
       )
     }
   }

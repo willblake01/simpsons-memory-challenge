@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Context } from '../../context'
+import React, { useEffect, useState } from 'react'
 import { useLocalStorageState } from '../utils'
 import classNames from 'classnames'
 import { FidgetSpinner } from 'react-loader-spinner'
@@ -13,13 +12,11 @@ const Hints = ({
   setDisplayHints,
   stopSong
 }) => {
-  const { songIsPaused, songIsPlaying } = useContext(Context)
-
   const [displayAuthor, setDisplayAuthor] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [quoteData, setQuoteData] = useLocalStorageState('quoteData', null)
 
-  const { character, image, quote } = { ...quoteData }
+  const { character = '', image = '', quote = '' } = { ...quoteData }
 
   const fetchData = async () => {
     const response = await fetch('https://thesimpsonsquoteapi.glitch.me/quotes')
@@ -72,8 +69,6 @@ const Hints = ({
             playSong={playSong}
             setDisplayAuthor={setDisplayAuthor}
             setDisplayHints={setDisplayHints}
-            songIsPaused={songIsPaused}
-            songIsPlaying={songIsPlaying}
             stopSong={stopSong}
           />
         </div>
