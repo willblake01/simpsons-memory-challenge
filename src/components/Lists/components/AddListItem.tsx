@@ -4,7 +4,7 @@ import { LargeButton, UserInput } from '../../utils'
 import { sweetAlert } from '../../utils/Alert'
 
 const AddListItem = () => {
-  const { rawList, setRawList } = useContext(Context)
+  const { rawList, setRawList }: any = useContext(Context)
 
   const [newItem, setNewItem] = useState('')
 

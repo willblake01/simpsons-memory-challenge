@@ -17,7 +17,7 @@ const Challenge = () => {
     setSongIsPaused,
     songIsPlaying,
     setSongIsPlaying
-  } = useContext(Context)
+  }: any = useContext(Context)
 
   const navigate = useNavigate()
 

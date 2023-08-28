@@ -3,7 +3,7 @@ import { Context } from '../../../context'
 import { SmallButton } from '../../utils'
 
 const List = () => {
-  const { rawList, setRawList } = useContext(Context)
+  const { rawList, setRawList }: any = useContext(Context)
 
   const [list, setList] = useState([])
 

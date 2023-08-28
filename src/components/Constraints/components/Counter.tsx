@@ -3,7 +3,7 @@ import { Context } from '../../../context'
 import { LargeButton } from '../../utils'
 
 const Counter = () => {
-  const { goal, setGoal } = useContext(Context)
+  const { goal, setGoal }: any = useContext(Context)
 
   const decrement = () => {
     if (goal > 0) {

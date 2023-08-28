@@ -6,9 +6,12 @@ import { LargeButton, UserInput } from './utils'
 const InitialGoal = () => {
   const navigate = useNavigate()
 
-  const { setClock, setGoal, setRawList, setRevisionsRemaining } = useContext(
-    Context
-  )
+  const {
+    setClock,
+    setGoal,
+    setRawList,
+    setRevisionsRemaining
+  }: any = useContext(Context)
 
   const handleGoalInput = e => {
     const { value } = e.target

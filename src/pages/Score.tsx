@@ -10,7 +10,7 @@ import { LargeButton } from '../components/utils'
 const Score = () => {
   const navigate = useNavigate()
 
-  const { goal, rawList } = useContext(Context)
+  const { goal, rawList }: any = useContext(Context)
 
   const [score, setScore] = useLocalStorageState('score', 0)
 

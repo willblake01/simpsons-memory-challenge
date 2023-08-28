@@ -4,7 +4,7 @@ import { Context } from '../../../context'
 import { msToTime } from '../../../utils/MSToTotalTime.ts'
 
 const Clock = () => {
-  const { clock, setClock } = useContext(Context)
+  const { clock, setClock }: any = useContext(Context)
 
   useEffect(() => {
     const interval = setInterval(() => {
