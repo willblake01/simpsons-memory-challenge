@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "jsx": "react",
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
-    "module": "ES2015",
-    "moduleResolution": "bundler"
-  }
-}
