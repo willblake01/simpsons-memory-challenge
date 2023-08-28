@@ -30,7 +30,7 @@
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
-    "test": "jest src/__tests__/Lists/Lists.test.tsx --watchAll",
+    "test": "jest src/__tests__/components/Lists/Lists.test.tsx src/__tests__/utils/MSToTotalTime.test.tsx src/__tests__/components/Header.test.tsx src/__tests__/components/utils/UserInput.test.tsx src/__tests__/components/utils/Buttons/LargeButton.test.tsx src/__tests__/components/utils/Buttons/SmallButton.test.tsx src/__tests__/pages/Challenge.test.tsx src/__tests__/pages/Landing.test.tsx src/__tests__/pages/Score.test.tsx --watchAll",
     "eject": "react-scripts eject",
     "precommit": "lint-staged"
   },
