@@ -1,4 +1,4 @@
-import React, { createContext } from 'react'
+import React, { createContext, useState } from 'react'
 import { useLocalStorageState } from './components/utils'
 
 export const Context = createContext()
@@ -11,14 +11,8 @@ export const ContextProvider = ({ children }) => {
     'revisionsRemaining',
     null
   )
-  const [songIsPlaying, setSongIsPlaying] = useLocalStorageState(
-    'songIsPlaying',
-    false
-  )
-  const [songIsPaused, setSongIsPaused] = useLocalStorageState(
-    'songIsPaused',
-    false
-  )
+  const [songIsPlaying, setSongIsPlaying] = useState(false)
+  const [songIsPaused, setSongIsPaused] = useState(false)
 
   const context = {
     clock,

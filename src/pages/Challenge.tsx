@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
 import '../public/styles/app.css'
 import { Context } from '../context'
 import { useNavigate } from 'react-router-dom'
 import { Constraints, Hints, Lists } from '../components'
 import { LargeButton } from '../components/utils'
-import audio from '../public/audio/The_Simpsons_Theme_Song.mp3'
+import themeSongMP3 from '../public/audio/The_Simpsons_Theme_Song.mp3'
 import { AddListItem } from '../components/Lists/components'
 
-const themeSong = new Audio(audio)
-
 const Challenge = () => {
+  const themeSong = useRef<HTMLAudioElement>(new Audio(themeSongMP3))
+
   const {
     clock,
     setClock,
@@ -30,7 +30,7 @@ const Challenge = () => {
   const playSong = () => {
     if (!songIsPlaying) {
       Promise.all([setSongIsPaused(false), setSongIsPlaying(true)]).then(() =>
-        themeSong.play()
+        themeSong.current?.play()
       )
     }
   }
@@ -38,18 +38,18 @@ const Challenge = () => {
   const pauseSong = () => {
     if (songIsPlaying) {
       Promise.all([setSongIsPaused(true), setSongIsPlaying(false)]).then(() =>
-        themeSong.pause()
+        themeSong.current?.pause()
       )
     }
   }
 
   const stopSong = () => {
     Promise.all([setSongIsPaused(false), setSongIsPlaying(false)]).then(() =>
-      themeSong.load()
+      themeSong.current?.load()
     )
   }
 
-  themeSong.onended = function() {
+  themeSong.current.onended = function() {
     Promise.resolve(setSongIsPlaying(false)).then(() => stopSong())
   }
 
