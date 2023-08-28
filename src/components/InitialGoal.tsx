@@ -39,7 +39,7 @@ const InitialGoal = () => {
         <UserInput
           type="number"
           pattern="[0-9]"
-          mode="numeric"
+          inputMode="numeric"
           placeholder="Please Enter a Number"
           id="initial-count-input"
           onChange={handleGoalInput}

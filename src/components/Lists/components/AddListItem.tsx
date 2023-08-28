@@ -148,8 +148,6 @@ const AddListItem = () => {
           type="text"
           pattern="[A-Za-z]*"
           inputMode="text"
-          newItem={newItem}
-          handleInput={handleInput}
           placeholder="Character Name"
           id="add-item-id"
           onChange={handleInput}
