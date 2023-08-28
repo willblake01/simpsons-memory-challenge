@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import './public/styles/index.css'
 import classNames from 'classnames'
 import { ContextProvider } from './context'
@@ -10,7 +10,7 @@ import { Challenge, Landing, Score } from './pages'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(
-  <BrowserRouter>
+  <HashRouter>
     <ContextProvider>
       <div
         className={classNames(
@@ -28,5 +28,5 @@ root.render(
         </Routes>
       </div>
     </ContextProvider>
-  </BrowserRouter>
+  </HashRouter>
 )
