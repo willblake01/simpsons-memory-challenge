@@ -18,51 +18,40 @@ const ButtonGroup = ({
   setDisplayAuthor,
   setDisplayHints
 }: ButtonGroupProps) => {
-  const handleDisplayButtons = () => {
-    if (displayHints) {
-      return (
-        <Fragment>
-          <LargeButton
-            className="large-button"
-            onClick={handleFetchQuote}
-            text="Next Quote"
-          />
-          <LargeButton
-            className="large-button"
-            onClick={() => setDisplayAuthor(!displayAuthor)}
-            text={displayAuthor ? 'Hide Author' : 'Show Author'}
-          />
-          <SongPlayer />
-          <LargeButton
-            className="large-button"
-            onClick={() => setDisplayHints(false)}
-            text="Hide Hints"
-          />
-        </Fragment>
-      )
-    } else {
-      return (
+  return displayHints ? (
+    <Fragment>
+      <div
+        className={classNames(
+          'align-center',
+          'flex-row',
+          'justify-center',
+          'width-max-content'
+        )}
+      >
         <LargeButton
-          text="Show Hints"
           className="large-button"
-          onClick={() => setDisplayHints(true)}
+          onClick={handleFetchQuote}
+          text="Next Quote"
         />
-      )
-    }
-  }
-
-  const buttonsUI = handleDisplayButtons()
-  return (
-    <div
-      className={classNames(
-        'align-center',
-        'flex-row',
-        'justify-center',
-        'width-max-content'
-      )}
-    >
-      {buttonsUI}
-    </div>
+        <LargeButton
+          className="large-button"
+          onClick={() => setDisplayAuthor(!displayAuthor)}
+          text={displayAuthor ? 'Hide Author' : 'Show Author'}
+        />
+        <SongPlayer />
+        <LargeButton
+          className="large-button"
+          onClick={() => setDisplayHints(false)}
+          text="Hide Hints"
+        />
+      </div>
+    </Fragment>
+  ) : (
+    <LargeButton
+      text="Show Hints"
+      className="large-button"
+      onClick={() => setDisplayHints(true)}
+    />
   )
 }
 
