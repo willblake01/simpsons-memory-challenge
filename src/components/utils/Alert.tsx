@@ -1,6 +1,11 @@
 import Swal from 'sweetalert2'
 
-export const sweetAlert = (title, text) => {
+interface AlertProps {
+  title: string
+  text: string
+}
+
+export const Alert = ({ title, text }: AlertProps): void => {
   Swal.fire({
     icon: 'warning',
     confirmButtonColor: 'orange',
@@ -8,3 +13,5 @@ export const sweetAlert = (title, text) => {
     text
   })
 }
+
+export default Alert

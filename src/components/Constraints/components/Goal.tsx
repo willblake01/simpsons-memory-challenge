@@ -5,12 +5,19 @@ import { Counter } from '.'
 import { SmallButton } from '../../utils'
 
 const Goal = () => {
+  interface GoalContext {
+    clock: number
+    goal: number
+    revisionsRemaining: number
+    setRevisionsRemaining: (value: number) => void
+  }
+
   const {
     clock,
     goal,
     revisionsRemaining,
     setRevisionsRemaining
-  }: any = useContext(Context)
+  }: GoalContext = useContext(Context)
 
   const [revise, setRevise] = useState(false)
 

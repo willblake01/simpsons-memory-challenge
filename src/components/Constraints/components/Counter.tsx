@@ -2,8 +2,13 @@ import React, { useContext } from 'react'
 import { Context } from '../../../context'
 import { LargeButton } from '../../utils'
 
+interface Goal {
+  goal: number
+  setGoal: (value: number) => void
+}
+
 const Counter = () => {
-  const { goal, setGoal }: any = useContext(Context)
+  const { goal, setGoal }: Goal = useContext(Context)
 
   const decrement = () => {
     if (goal > 0) {

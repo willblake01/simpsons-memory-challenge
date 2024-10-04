@@ -5,18 +5,26 @@ import { FidgetSpinner } from 'react-loader-spinner'
 import { Quote } from './components'
 import ButtonGroup from './components/ButtonGroup'
 
+interface HintsProps {
+  displayHints: boolean
+  pauseSong: () => void
+  playSong: () => void
+  setDisplayHints: (value: boolean) => void
+  stopSong: () => void
+}
+
 const Hints = ({
   displayHints,
   pauseSong,
   playSong,
   setDisplayHints,
   stopSong
-}) => {
+}: HintsProps) => {
   const [displayAuthor, setDisplayAuthor] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [quoteData, setQuoteData] = useLocalStorageState('quoteData', null)
 
-  const { character = '', image = '', quote = '' } = { ...quoteData }
+  const white = '#ffffff'
 
   const fetchData = async () => {
     const response = await fetch('https://thesimpsonsquoteapi.glitch.me/quotes')
@@ -43,7 +51,7 @@ const Hints = ({
           ariaLabel="dna-loading"
           wrapperStyle={{ height: '620px' }}
           wrapperClass="dna-wrapper"
-          ballColors={['#ffffff', '#ffffff', '#ffffff']}
+          ballColors={[white, white, white]}
           backgroundColor="orange"
         />
       ) : (
@@ -54,13 +62,7 @@ const Hints = ({
             'align-center'
           )}
         >
-          <Quote
-            character={character}
-            displayAuthor={displayAuthor}
-            image={image}
-            quote={quote}
-            quoteData={quoteData}
-          />
+          <Quote quoteData={quoteData} displayAuthor={displayAuthor} />
           <ButtonGroup
             displayAuthor={displayAuthor}
             displayHints={displayHints}

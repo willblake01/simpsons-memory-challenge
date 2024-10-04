@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../../../context'
 import { SmallButton } from '../../utils'
+import type { RawList } from '../../../types/RawList'
 
 const List = () => {
-  const { rawList, setRawList }: any = useContext(Context)
+  const { rawList, setRawList }: RawList = useContext(Context)
 
   const [list, setList] = useState([])
 

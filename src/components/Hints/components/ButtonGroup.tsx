@@ -3,6 +3,17 @@ import classNames from 'classnames'
 import { LargeButton } from '../../utils'
 import SongButtons from './SongButtons'
 
+interface ButtonGroupProps {
+  displayAuthor: boolean
+  displayHints: boolean
+  handleFetchQuote: () => void
+  pauseSong: () => void
+  playSong: () => void
+  setDisplayAuthor: (value: boolean) => void
+  setDisplayHints: (value: boolean) => void
+  stopSong: () => void
+}
+
 const ButtonGroup = ({
   displayAuthor,
   displayHints,
@@ -12,7 +23,7 @@ const ButtonGroup = ({
   setDisplayAuthor,
   setDisplayHints,
   stopSong
-}) => {
+}: ButtonGroupProps) => {
   const handleDisplayButtons = () => {
     if (displayHints) {
       return (

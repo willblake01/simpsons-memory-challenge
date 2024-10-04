@@ -3,8 +3,13 @@ import classNames from 'classnames'
 import { Context } from '../../../context'
 import { msToTime } from '../../../utils/MSToTotalTime.ts'
 
+interface Clock {
+  clock: number
+  setClock: (value: number) => void
+}
+
 const Clock = () => {
-  const { clock, setClock }: any = useContext(Context)
+  const { clock, setClock }: Clock = useContext(Context)
 
   useEffect(() => {
     const interval = setInterval(() => {

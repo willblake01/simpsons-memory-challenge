@@ -8,6 +8,14 @@ import { LargeButton } from '../components/utils'
 import themeSongMP3 from '../public/audio/The_Simpsons_Theme_Song.mp3'
 import { AddListItem } from '../components/Lists/components'
 
+interface ChallengeContext {
+  clock: number
+  setClock: (value: number) => void
+  setSongIsPaused: (value: boolean) => void
+  songIsPlaying: boolean
+  setSongIsPlaying: (value: boolean) => void
+}
+
 const Challenge = () => {
   const themeSong = useRef<HTMLAudioElement>(new Audio(themeSongMP3))
 
@@ -17,7 +25,7 @@ const Challenge = () => {
     setSongIsPaused,
     songIsPlaying,
     setSongIsPlaying
-  }: any = useContext(Context)
+  }: ChallengeContext = useContext(Context)
 
   const navigate = useNavigate()
 

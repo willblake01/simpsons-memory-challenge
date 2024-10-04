@@ -7,10 +7,15 @@ import moe from '../public/images/moe.png'
 import nelson from '../public/images/nelson.png'
 import { LargeButton } from '../components/utils'
 
+interface ScoreContext {
+  goal: number
+  rawList: string[]
+}
+
 const Score = () => {
   const navigate = useNavigate()
 
-  const { goal, rawList }: any = useContext(Context)
+  const { goal, rawList }: ScoreContext = useContext(Context)
 
   const [score, setScore] = useLocalStorageState('score', 0)
 

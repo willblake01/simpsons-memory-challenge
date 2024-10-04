@@ -3,6 +3,14 @@ import { useNavigate } from 'react-router-dom'
 import { Context } from '../context'
 import { LargeButton, UserInput } from './utils'
 
+interface GoalInputEvent extends React.ChangeEvent<HTMLInputElement> {}
+interface InitialGoalContext {
+  setClock: (value: number) => void
+  setGoal: (value: number) => void
+  setRawList: (value: string[]) => void
+  setRevisionsRemaining: (value: number) => void
+}
+
 const InitialGoal = () => {
   const navigate = useNavigate()
 
@@ -11,9 +19,9 @@ const InitialGoal = () => {
     setGoal,
     setRawList,
     setRevisionsRemaining
-  }: any = useContext(Context)
+  }: InitialGoalContext = useContext(Context)
 
-  const handleGoalInput = e => {
+  const handleGoalInput = (e: GoalInputEvent) => {
     const { value } = e.target
     setGoal(parseInt(value, 10))
   }

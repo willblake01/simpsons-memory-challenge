@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../../../context'
+import type { RawList } from '../../../types/RawList'
 
 const FilteredList = () => {
-  const { rawList }: any = useContext(Context)
+  const { rawList }: RawList = useContext(Context)
 
   const [filteredList, setFilteredList] = useState([])
 

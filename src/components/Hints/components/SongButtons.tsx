@@ -2,8 +2,25 @@ import React, { Fragment, useContext } from 'react'
 import { Context } from '../../../context'
 import { LargeButton } from '../../utils'
 
-const SongButtons = ({ playSong, pauseSong, stopSong }) => {
-  const { songIsPaused, songIsPlaying }: any = useContext(Context)
+interface SongButtonsContext {
+  songIsPaused: boolean
+  songIsPlaying: boolean
+}
+
+interface SongButtonsProps {
+  playSong: () => void
+  pauseSong: () => void
+  stopSong: () => void
+}
+
+const SongButtons: React.FC<SongButtonsProps> = ({
+  playSong,
+  pauseSong,
+  stopSong
+}) => {
+  const { songIsPaused, songIsPlaying }: SongButtonsContext = useContext(
+    Context
+  )
 
   const handleSongButtons = () => {
     if (songIsPlaying) {
@@ -27,7 +44,7 @@ const SongButtons = ({ playSong, pauseSong, stopSong }) => {
           <LargeButton
             className="large-button"
             onClick={playSong}
-            text={'Unpause Song'}
+            text={'Play Song'}
           />
           <LargeButton
             className="large-button"

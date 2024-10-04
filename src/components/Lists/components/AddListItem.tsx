@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react'
 import { Context } from '../../../context'
 import { LargeButton, UserInput } from '../../utils'
-import { sweetAlert } from '../../utils/Alert'
+import Alert from '../../utils/Alert'
+import type { RawList } from '../../../types/RawList'
 
 const AddListItem = () => {
-  const { rawList, setRawList }: any = useContext(Context)
+  const { rawList, setRawList }: RawList = useContext(Context)
 
   const [newItem, setNewItem] = useState('')
 
@@ -94,7 +95,7 @@ const AddListItem = () => {
     'Lunchlady Doris'
   ]
 
-  const handleInput = (e: Event) => {
+  const handleInput = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { value } = e.target as HTMLButtonElement
     setNewItem(value)
   }
@@ -106,15 +107,15 @@ const AddListItem = () => {
     )
 
     if (alreadyAdded) {
-      sweetAlert(
-        'Duplicate Error',
-        `${character} already added, please add a different character.`
-      )
+      Alert({
+        title: 'Duplicate Error',
+        text: `${character} already added, please add a different character.`
+      })
     } else if (!isSimpsonsCharacter) {
-      sweetAlert(
-        'Validation Error',
-        `${character} is not a Simpsons character, please add a Simpsons character.`
-      )
+      Alert({
+        title: 'Validation Error',
+        text: `${character} is not a Simpsons character, please add a Simpsons character.`
+    })
     } else {
       const onlyCharacters = rawList
         .filter((character: string) =>
@@ -125,7 +126,7 @@ const AddListItem = () => {
     }
   }
 
-  const handleSubmit = (e: Event) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (newItem) {
       Promise.all([
         e.preventDefault(),
