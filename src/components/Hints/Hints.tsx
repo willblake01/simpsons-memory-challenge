@@ -7,19 +7,10 @@ import ButtonGroup from './components/ButtonGroup'
 
 interface HintsProps {
   displayHints: boolean
-  pauseSong: () => void
-  playSong: () => void
   setDisplayHints: (value: boolean) => void
-  stopSong: () => void
 }
 
-const Hints = ({
-  displayHints,
-  pauseSong,
-  playSong,
-  setDisplayHints,
-  stopSong
-}: HintsProps) => {
+const Hints = ({ displayHints, setDisplayHints }: HintsProps) => {
   const [displayAuthor, setDisplayAuthor] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [quoteData, setQuoteData] = useLocalStorageState('quoteData', null)
@@ -67,11 +58,8 @@ const Hints = ({
             displayAuthor={displayAuthor}
             displayHints={displayHints}
             handleFetchQuote={handleFetchQuote}
-            pauseSong={pauseSong}
-            playSong={playSong}
             setDisplayAuthor={setDisplayAuthor}
             setDisplayHints={setDisplayHints}
-            stopSong={stopSong}
           />
         </div>
       )}

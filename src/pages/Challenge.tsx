@@ -1,68 +1,54 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { Fragment, useContext, useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
 import '../public/styles/app.css'
 import { Context } from '../context'
 import { useNavigate } from 'react-router-dom'
 import { Constraints, Hints, Lists } from '../components'
 import { LargeButton } from '../components/utils'
-import themeSongMP3 from '../public/audio/The_Simpsons_Theme_Song.mp3'
 import { AddListItem } from '../components/Lists/components'
 
 interface ChallengeContext {
   clock: number
   setClock: (value: number) => void
   setSongIsPaused: (value: boolean) => void
-  songIsPlaying: boolean
   setSongIsPlaying: (value: boolean) => void
+  themeSong: HTMLAudioElement
 }
 
 const Challenge = () => {
-  const themeSong = useRef<HTMLAudioElement>(new Audio(themeSongMP3))
+  const navigate = useNavigate()
 
   const {
     clock,
     setClock,
     setSongIsPaused,
-    songIsPlaying,
-    setSongIsPlaying
+    setSongIsPlaying,
+    themeSong
   }: ChallengeContext = useContext(Context)
 
-  const navigate = useNavigate()
+  const themeSongRef = useRef(themeSong)
 
   const [displayHints, setDisplayHints] = useState(true)
 
-  const endChallenge = async () => {
-    Promise.all([stopSong(), setClock(0)]).then(() => navigate('/score'))
-  }
+  const challengeActive = clock > 0
 
-  const playSong = () => {
-    if (!songIsPlaying) {
-      Promise.all([setSongIsPaused(false), setSongIsPlaying(true)]).then(() =>
-        themeSong.current?.play()
-      )
-    }
-  }
-
-  const pauseSong = () => {
-    if (songIsPlaying) {
-      Promise.all([setSongIsPaused(true), setSongIsPlaying(false)]).then(() =>
-        themeSong.current?.pause()
-      )
-    }
-  }
-
-  const stopSong = () => {
-    Promise.all([setSongIsPaused(false), setSongIsPlaying(false)]).then(() =>
-      themeSong.current?.load()
+  themeSongRef.current.onended = function() {
+    Promise.resolve(themeSongRef.current?.load()).then(() =>
+      setSongIsPlaying(false)
     )
   }
 
-  themeSong.current.onended = function() {
-    Promise.resolve(setSongIsPlaying(false)).then(() => stopSong())
+  const endChallenge = async () => {
+    Promise.all([
+      themeSongRef.current?.load(),
+      setSongIsPlaying(false),
+      setSongIsPaused(false),
+      setClock(0)
+    ]).then(() => navigate('/score'))
   }
 
   useEffect(() => {
-    if (clock === 0) {
+    if (!challengeActive) {
       endChallenge()
     }
   })
@@ -77,13 +63,12 @@ const Challenge = () => {
     >
       <Constraints />
       {displayHints ? (
-        <Hints
-          displayHints={displayHints}
-          pauseSong={pauseSong}
-          playSong={playSong}
-          stopSong={stopSong}
-          setDisplayHints={setDisplayHints}
-        />
+        <Fragment>
+          <Hints
+            displayHints={displayHints}
+            setDisplayHints={setDisplayHints}
+          />
+        </Fragment>
       ) : (
         <LargeButton
           text="Show Hints"
@@ -94,7 +79,7 @@ const Challenge = () => {
       <Lists />
       <AddListItem />
       <LargeButton
-        text="Finished"
+        text="Submit"
         className="large-button"
         onClick={endChallenge}
       />

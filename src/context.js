@@ -1,9 +1,12 @@
 import React, { createContext, useState } from 'react'
 import { useLocalStorageState } from './components/utils'
+import themeSongMP3 from './public/audio/The_Simpsons_Theme_Song.mp3'
 
 export const Context = createContext()
 
 export const ContextProvider = ({ children }) => {
+  const themeSong = new Audio(themeSongMP3)
+
   const [clock, setClock] = useLocalStorageState('clock', null)
   const [goal, setGoal] = useLocalStorageState('goal', null)
   const [rawList, setRawList] = useLocalStorageState('rawList', [])
@@ -26,7 +29,8 @@ export const ContextProvider = ({ children }) => {
     songIsPlaying,
     setSongIsPlaying,
     songIsPaused,
-    setSongIsPaused
+    setSongIsPaused,
+    themeSong
   }
 
   return <Context.Provider value={context}>{children}</Context.Provider>

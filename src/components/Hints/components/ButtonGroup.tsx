@@ -1,28 +1,22 @@
 import React, { Fragment } from 'react'
 import classNames from 'classnames'
 import { LargeButton } from '../../utils'
-import SongButtons from './SongButtons'
+import SongPlayer from '../../SongPlayer'
 
 interface ButtonGroupProps {
   displayAuthor: boolean
   displayHints: boolean
   handleFetchQuote: () => void
-  pauseSong: () => void
-  playSong: () => void
   setDisplayAuthor: (value: boolean) => void
   setDisplayHints: (value: boolean) => void
-  stopSong: () => void
 }
 
 const ButtonGroup = ({
   displayAuthor,
   displayHints,
   handleFetchQuote,
-  pauseSong,
-  playSong,
   setDisplayAuthor,
-  setDisplayHints,
-  stopSong
+  setDisplayHints
 }: ButtonGroupProps) => {
   const handleDisplayButtons = () => {
     if (displayHints) {
@@ -38,11 +32,7 @@ const ButtonGroup = ({
             onClick={() => setDisplayAuthor(!displayAuthor)}
             text={displayAuthor ? 'Hide Author' : 'Show Author'}
           />
-          <SongButtons
-            playSong={playSong}
-            pauseSong={pauseSong}
-            stopSong={stopSong}
-          />
+          <SongPlayer />
           <LargeButton
             className="large-button"
             onClick={() => setDisplayHints(false)}
