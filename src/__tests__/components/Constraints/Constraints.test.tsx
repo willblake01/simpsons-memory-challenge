@@ -1,4 +1,4 @@
-import Constraints from '../../../components/Constraints/Constraints'
+import { Constraints } from '../../../components'
 
 describe('<Constraints />', () => {
   it('should be defined', () => {

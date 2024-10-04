@@ -1,4 +1,4 @@
-import Lists from '../../../components/Lists/Lists'
+import { Lists } from '../../../components'
 
 describe('<Lists />', () => {
   it('should be defined', () => {

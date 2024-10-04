@@ -1,4 +1,4 @@
-import Hints from '../../../components/Hints/Hints'
+import { Hints } from '../../../components'
 
 describe('<Hints />', () => {
   it('should be defined', () => {

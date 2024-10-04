@@ -3,7 +3,7 @@ import { useLocalStorageState } from '../utils'
 import classNames from 'classnames'
 import { FidgetSpinner } from 'react-loader-spinner'
 import { Quote } from './components'
-import ButtonGroup from './components/ButtonGroup'
+import { ButtonGroup } from './components'
 
 interface HintsProps {
   displayHints: boolean
