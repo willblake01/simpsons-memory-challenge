@@ -2,7 +2,23 @@ import React, { createContext, useState } from 'react'
 import { useLocalStorageState } from './components/utils'
 import themeSongMP3 from './public/audio/The_Simpsons_Theme_Song.mp3'
 
-export const Context = createContext()
+interface ContextType {
+  clock: number
+  setClock: (value: number) => void
+  goal: number
+  setGoal: (value: number) => void
+  rawList: string[]
+  setRawList: (value: string[]) => void
+  revisionsRemaining: number
+  setRevisionsRemaining: (value: number) => void
+  songIsPlaying: boolean
+  setSongIsPlaying: (value: boolean) => void
+  songIsPaused: boolean
+  setSongIsPaused: (value: boolean) => void
+  themeSong: HTMLAudioElement
+}
+
+export const Context = createContext<ContextType | null>(null)
 
 export const ContextProvider = ({ children }) => {
   const themeSong = new Audio(themeSongMP3)
