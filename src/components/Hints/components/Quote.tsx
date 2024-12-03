@@ -12,7 +12,7 @@ interface QuoteProps {
 }
 
 const Quote = ({ displayAuthor, quoteData }: QuoteProps) => {
-  const { character, image, quote } = quoteData
+  const { character, image, quote } = quoteData || {}
 
   {
     return quoteData ? (

@@ -8,15 +8,19 @@ const List = () => {
 
   const [list, setList] = useState([])
 
-  const deleteListItem = item => {
-    const rawListFiltered = rawList.filter(listItem => listItem !== item)
+  interface DeleteListItem {
+    (item: string): void
+  }
+
+  const deleteListItem: DeleteListItem = item => {
+    const rawListFiltered = rawList.filter((listItem: string) => listItem !== item)
     setRawList(rawListFiltered)
   }
 
   useEffect(() => {
     setList(rawList)
   }, [rawList])
-
+  
   return (
     <section>
       <ol className="list">
